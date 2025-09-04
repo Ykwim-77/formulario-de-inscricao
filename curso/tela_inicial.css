@@ -34,3 +34,18 @@ h3{
     width: 50%;
     display: flex; 
 }
+.bannerInferior{
+    background: linear-gradient( to bottom, #e8e8e800, #1E2A4F);
+    height: 375px;
+    width: 100%;
+    display:flex;
+}
+.bannerInferior h1 {
+    margin-top: 14%;
+}
+.loginAluno .loginProfessor:hover{
+    background-color: #D3D3D3;
+    cursor: pointer;
+    transform-style: 1.1;
+
+}
