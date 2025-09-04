@@ -1,0 +1,36 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.bannerTopo{
+    background: linear-gradient( to bottom, #1E2A4F, #e8e8e800);
+    height: 375px;
+    width: 100%;
+    display:flex;
+}
+
+.loginProfessor{
+    margin-left: 5%;
+    border: 2px solid black;
+    border-radius: 6px;
+    width: 50%;
+    display: flex; 
+}
+h1{
+    margin-top:65px;
+}
+
+h3{
+    margin-top: 100px;
+    font-size: 30px;
+    padding-left:50px;
+}
+.loginAluno{
+    margin-left: 40%;
+    border: 2px solid black;
+    border-radius: 6px;
+    width: 50%;
+    display: flex; 
+}

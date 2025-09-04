@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Consumindo API</title>
+  <link rel="stylesheet" href="candidatos.css">
+</head>
+<body>
+  <header>
+    <h1>Lista de Usuários</h1>
+  </header>
+  <ul id="listaUsuarios"></ul>
+
+  <script>
+    // Chama a API
+    fetch("http://localhost:3000/candidatos")
+      .then(response => response.json())
+      .then(dados => {
+        const lista = document.getElementById("listaUsuarios");
+
+        // Percorre os dados e cria <li> para cada usuário
+        dados.forEach(usuario => {
+          const item = document.createElement("li");
+          item.classList.add("candidato");
+item.innerHTML = `
+          <div class="informacoes">
+            <div class="info linha-nome" id="nome-${usuario.id}">Nome: ${usuario.nome}</div>
+            <div class="info linha-celular" id="celular-${usuario.id}">Celular: ${usuario.celular_a}</div>
+            <div class="info linha-cidade" id="cidade-${usuario.id}">Cidade: ${usuario.cidade}</div>
+            <div class="info linha-curso" id="curso-${usuario.id}">Curso: ${usuario.curso}</div>
+            <div class="info linha-nasc" id="nasc-${usuario.id}">Nascimento: ${usuario.data_nasc}</div>
+          </div
+`;
+
+
+          lista.appendChild(item);
+        });
+      })
+      .catch(error => console.error("Erro ao buscar API:", error));
+  </script>
+</body>
+</html>
