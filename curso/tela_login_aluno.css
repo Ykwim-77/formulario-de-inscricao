@@ -107,6 +107,19 @@ body {
     border: 1px solid #aaa;
     border-radius: 4px;
 }
+.recuperar-senha {
+    font-size: 14px;
+    color: #2444a7;
+    text-decoration: none;
+    align-self: flex-start; /* mantém alinhado à esquerda do input */
+    margin-top: 2px;
+    transition: color 0.3s ease;
+}
+
+.recuperar-senha:hover {
+    color: #14213d;
+    text-decoration: underline;
+} 
 
 .login-container button {
     width: 100%;
