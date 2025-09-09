@@ -150,6 +150,143 @@ body {
 .botaoEntrar:hover {
     background: #14213d;
 }
+.form-container {
+    width: 90%;
+    max-width: 800px;
+    margin: 20px auto 60px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: #f9f9f9;
+    box-shadow: 2px 4px 6px #000000a1;
+}
+.form-container h1 {
+    text-align: center;
+    color: #1e2a4f;
+    margin-bottom: 20px;
+}
+#nome{
+    width: 90%;
+    padding: 8px;
+    margin-bottom: 15px;
+    text-decoration: underline;
+    border: none;              
+    border-bottom: 2px solid #1E2A4F; 
+    outline: none;            
+    padding: 5px 0;          
+    font-size: 16px;
+    background: transparent;              
+    transition: border-color 0.3s;
+}
+.rg-expedido-cpf {
+    display: flex;          /* coloca os dois inputs na mesma linha */
+    gap: 20px;              /* espaço entre eles */
+    margin-bottom: 15px;
+}
+#rg{
+    width: 220px;           /* ou use % se preferir responsivo */
+    border: none;
+    border-bottom: 2px solid #1E2A4F;
+    outline: none;
+    padding: 5px 0;
+    font-size: 16px;
+    background: transparent;
+    transition: border-color 0.3s;
+}
+#expedido {
+    width: 115px;           /* ou use % se preferir responsivo */
+    border: none;
+    border-bottom: 2px solid #1E2A4F;
+    outline: none;
+    padding: 5px 0;
+    font-size: 16px;
+    background: transparent;
+    transition: border-color 0.3s;
+}
+#cpf{
+    width: 215px;           /* ou use % se preferir responsivo */
+    border: none;
+    border-bottom: 2px solid #1E2A4F;
+    outline: none;
+    padding: 5px 0;
+    font-size: 16px;
+    background: transparent;
+    transition: border-color 0.3s;
+}
+#data_nascimento{
+    width: 60%;
+    padding: 8px;
+    margin-bottom: 15px;
+    text-decoration: underline;
+    border: none;              
+    border-bottom: 2px solid #1E2A4F; 
+    outline: none;            
+    padding: 5px 0;          
+    font-size: 16px;
+    background: transparent;              
+    transition: border-color 0.3s;
+}
+#endereco{
+    width: 70%;
+    padding: 8px;
+    margin-bottom: 15px;
+    text-decoration: underline;
+    border: none;              
+    border-bottom: 2px solid #1E2A4F; 
+    outline: none;            
+    padding: 5px 0;          
+    font-size: 16px;
+    background: transparent;              
+    transition: border-color 0.3s;
+}
+#numero{
+    width: 10%;
+    padding: 8px;
+    margin-bottom: 15px;
+    text-decoration: underline;
+    border: none;              
+    border-bottom: 2px solid #1E2A4F; 
+    outline: none;            
+    padding: 5px 0;          
+    font-size: 16px;
+    background: transparent;              
+    transition: border-color 0.3s;
+}
+.bairro-municipio-uf {
+    display: flex;          /* coloca os três inputs na mesma linha */
+    gap: 20px;              /* espaço entre eles */
+    margin-bottom: 15px;
+}
+#bairro{
+    width: 35%;             /* ou use % se preferir responsivo */
+    border: none;
+    border-bottom: 2px solid #1E2A4F;
+    outline: none;
+    padding: 5px 0;
+    font-size: 16px;
+    background: transparent;
+    transition: border-color 0.3s;
+}
+#municipio {
+    width: 25%;             /* ou use % se preferir responsivo */
+    border: none;
+    border-bottom: 2px solid #1E2A4F;
+    outline: none;
+    padding: 5px 0;
+    font-size: 16px;
+    background: transparent;
+    transition: border-color 0.3s;
+}
+#uf{
+    width: 10%;             /* ou use % se preferir responsivo */
+    border: none;
+    border-bottom: 2px solid #1E2A4F;
+    outline: none;
+    padding: 5px 0;
+    font-size: 16px;
+    background: transparent;
+    transition: border-color 0.3s;
+}
 
 footer {
     background: linear-gradient(to bottom, #e8e8e800, #1E2A4F);
