@@ -11,109 +11,122 @@ body {
 /* HEADER */
 .bannerTopo {
     width: 100%;
-    height: 200px;
     background: linear-gradient(to bottom, #1e2a4f, #ffffff);
-    color: #000000;
+    color: #000;
     display: flex;
+    flex-direction: column;
     align-items: center;
+    padding: 10px 0;
 }
 
-.logoTopo {
+.bannerTopo img.logoTopo {
     width: 80px;
-    margin-left: 2.5%;
-    margin-top: -5%;
+    margin-bottom: 5px;
 }
 
 .textosTopo {
-    display: flex;
-    flex-direction: column;
-    margin-left: 1%;
-    margin-top: -5%;
+    text-align: center;
+    margin-bottom: 10px;
 }
 
 .bannerTopo h1 {
     font-size: 24px;
-    margin: 0;
 }
 
 .subtitulo {
     font-size: 14px;
-    margin: 0;
 }
 
-.botaoVoltar {
-    margin-left: auto; 
-    margin-right: 5%;
-    margin-top: -5%;
+/* BARRA DE PESQUISA */
+.barra-pesquisa {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    max-width: 500px;
+    border: 2px solid #1E2A4F;
+    border-radius: 30px;
+    overflow: hidden;
+    margin-bottom: 10px;
 }
 
-.botaoVoltar a {
-    font-size: 50px;
-    color: #000000;
-    text-decoration: none;
-    transition: color 0.3s ease, transform 0.3s ease;
+.barra-pesquisa input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    outline: none;
+    font-size: 16px;
 }
 
-.botaoVoltar a:hover {
-    color: #2444a7;
-    transform: scale(1.2); 
+.barra-pesquisa button {
+    background: #1E2A4F;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.barra-pesquisa button:hover {
+    background: #2444a7;
 }
 
 /* MAIN */
 main {
     min-height: 400px;
-    margin-bottom: 40px; 
+    margin-bottom: 40px;
 }
-main p{
+
+.cursosProcurados {
     text-align: center;
     margin: 20px 0;
     font-size: 24px;
     color: #1E2A4F;
 }
-.cursosProcurados{
-    text-align: center;
-    margin: 20px 0;
-    font-size: 24px;
-    color: #1E2A4F;
-}
-.barra-pesquisa {
-  display: flex;
-  align-items: center;
-  width: 55%; 
-  margin: 20px auto;
-  border: 2px solid #1E2A4F;
-  border-radius: 30px;
-  overflow: hidden; /* arredonda tudo */
-  margin-top: -3%;
+
+/* CARROSSEL */
+.carrosel {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
 }
 
-.barra-pesquisa input {
-  flex: 1;
-  padding: 10px;
-  border: none;
-  outline: none; /* tira borda quando clica */
-  font-size: 16px;
+.carousel {
+    position: relative;
+    width: 90%;
+    max-width: 600px;
+    height: 350px;
+    perspective: 1000px;
+    transform-style: preserve-3d;
 }
 
-.barra-pesquisa button {
-  background: #1E2A4F;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  cursor: pointer;
-  transition: 0.3s;
+.card {
+    position: absolute;
+    width: 500px;
+    height: 300px;
+    background: #6161619b;
+    border-radius: 20px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backface-visibility: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: transform 1s;
+    cursor: grab;
+    user-select: none;
 }
 
-.barra-pesquisa button:hover {
-  background: #2444a7;
+.card:active {
+    cursor: grabbing;
 }
-
-
 
 footer {
     background: linear-gradient(to bottom, #e8e8e800, #1E2A4F);
     color: rgb(0, 0, 0);
     padding: 40px 20px 10px;
+    margin-top: 40px;
     font-family: Arial, sans-serif;
 }
 
@@ -133,7 +146,6 @@ footer {
 .footer-logo img {
     width: 90px;
     height: auto;
-    display: block; 
 }
 
 .footer-logo h2 {
@@ -190,4 +202,22 @@ a {
     padding-top: 10px;
     font-size: 14px;
     color: #555555;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+    .bannerTopo {
+        padding: 10px 0;
+    }
+    .bannerTopo h1 {
+        font-size: 20px;
+    }
+    .subtitulo {
+        font-size: 12px;
+    }
+    .card {
+        width: 200px;
+        height: 250px;
+        font-size: 18px;
+    }
 }
