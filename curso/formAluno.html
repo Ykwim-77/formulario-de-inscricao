@@ -2,127 +2,123 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Formulário de Inscrição</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Inscrição - Aluno</title>
     <link rel="stylesheet" href="formAluno.css">
 </head>
 <body>
-    <div class="page-wrapper">
-        <header>
-            <div class="bannerTopo">
-                <img src="imagens/logoGoverno.png" alt="Logo do Governo" class="logoTopo">
-                <div class="textosTopo">
-                    <h1>Governo do Estado do Paraná</h1>
-                    <p class="subtitulo">Portal Educacional</p>
-                </div>
-                <div class="botaoVoltar">
-                    <a href="tela_inicial.html">&#8592;</a>
-                </div>
+    <header>
+        <div class="bannerTopo">
+            <img src="imagens/logoGoverno.png" alt="Logo do Governo" class="logoTopo">
+            <div class="textosTopo">
+                <h1>Governo do Estado do Paraná</h1>
+                <p class="subtitulo">Portal Educacional</p>
             </div>
-        </header>
-        <br>
-        <br>
-        <main>
-            <div class="form-container">
-                <h1>Formulário de Inscrição</h1>
-                <form action="#" method="post">
+            <div class="botaoVoltar">
+                <a href="tela_inicial.html">&#8592;</a>
+            </div>
+        </div>
+    </header>
 
-                    <label for="nome">Nome:</label>
+    <main>
+        <div class="formulario">
+            <h2>Formulário de Inscrição - Aluno</h2>
+
+            <form action="tela_confirmacao.html" method="post">
+
+                <fieldset>
+                    <legend>Informações Pessoais</legend>
+
+                    <label for="nome">Nome do(a) Candidato(a):</label>
                     <input type="text" id="nome" name="nome" required>
 
-                    <br><br>
-                    <div class="rg-expedido">
-                        <label for="rg">RG:</label>
-                        <input type="number" id="rg" name="rg" required>
+                    <label for="rg">RG:</label>
+                    <input type="number" id="rg" name="rg" required>
 
-                        <label for="expedido">Expedido por:</label>
-                        <input type="text" id="expedido" name="expedido" required>
+                    <label for="expedido">Expedido por:</label>
+                    <input type="text" id="expedido" name="expedido" required>
 
-                        <label for="cpf">CPF:</label>
-                        <input type="number" id="cpf" name="cpf" required>
-                    </div>               
+                    <label for="cpf">CPF:</label>
+                    <input type="number" id="cpf" name="cpf" required>
 
-                    <br><br>
-                    <label for="data_nascimento">Data de nascimento:</label>
+                    <label for="data_nascimento">Data de Nascimento:</label>
                     <input type="date" id="data_nascimento" name="data_nascimento" required>
+                </fieldset>
 
-                    <br><br>
-                    <div class="endereco-numero">
-                        <label for="endereco">Endereço:</label>
-                        <input type="text" id="endereco" name="endereco" required>
+                <fieldset>
+                    <legend>Endereço</legend>
 
-                        <label for="numero">Nº:</label>
-                        <input type="number" id="numero" name="numero" required>
-                    </div>
+                    <label for="endereco">Endereço:</label>
+                    <input type="text" id="endereco" name="endereco" required>
 
-                    <br><br>
-                    <div class="bairro-municipio-uf">
-                        <label for="bairro">Bairro:</label>
-                        <input type="text" id="bairro" name="bairro" required>
+                    <label for="numero">Nº:</label>
+                    <input type="number" id="numero" name="numero" required>
 
-                        <label for="municipio">Município:</label>
-                        <input type="text" id="municipio" name="municipio" required>
+                    <label for="bairro">Bairro:</label>
+                    <input type="text" id="bairro" name="bairro" required>
 
-                        <label for="uf">UF:</label>
-                        <input type="text" id="uf" name="uf" maxlength="2" required>
-                    </div>                
+                    <label for="municipio">Município:</label>
+                    <input type="text" id="municipio" name="municipio" required>
 
-                    <br><br>
-                    <div class="telefones">
-                        <label for="telefone_fixo">Telefone fixo:</label>
-                        <input type="number" id="telefone_fixo" name="telefone_fixo" placeholder="(xx) xxxx-xxxx">
+                    <label for="uf">UF:</label>
+                    <input type="text" id="uf" name="uf" maxlength="2" required>
+                </fieldset>
 
-                        <label for="celular_a">Celular(A):</label>
-                        <input type="number" id="celular_a" name="celular_a" placeholder="(xx) xxxxx-xxxx">
-                    </div>
+                <fieldset>
+                    <legend>Contato</legend>
 
-                    <br><br>
+                    <label for="telefone_fixo">Telefone Fixo:</label>
+                    <input type="number" id="telefone_fixo" name="telefone_fixo">
+
+                    <label for="celular_a">Celular(A):</label>
+                    <input type="number" id="celular_a" name="celular_a">
+
                     <label for="email">E-mail:</label>
                     <input type="email" id="email" name="email" required>
+                </fieldset>
 
-                    <h3>CURSO PRETENDIDO: </h3>
-                    <div class="espaco">
-                    <button id="button"type="reset">Limpar</button>
-                    <button  id="enviar"type="submit" formmethod="post" formaction="tela_inicial.html">Enviar</button>
-                    </div>
-                </form>
-                <br>
-                                
-            </div>
-        </main>
+                <fieldset>
+                    <legend>Curso Pretendido</legend>
 
-        <footer>
-            <div class="footer">
-                <div class="footer-logo">
-                    <img src="imagens/logoGoverno.png" alt="Logo do Governo">
-                    <h2>Governo do Estado do Paraná</h2>
-                </div>
-                <div class="codigos">
-                    <h3>Links úteis</h3>
-                    <ul>
-                        <li><a href="#">Sobre</a></li>
-                        <li><a href="#">Política de Privacidade</a></li>
-                        <li><a href="#">Termos de Uso</a></li>
-                        <li><a href="#">Suporte</a></li>
-                    </ul>
-                </div>
-                <div class="contatos">
-                    <h3>Contato</h3>
-                    <p>Email: rafaelpilonetto59@gmail.com</p>
-                    <p>Email: christianmartinkoski@gmail.com</p>
-                    <p>Telefone: (46) 99989-0251</p>
-                    <p>Telefone: (46) 99414-639</p>
-                </div>
+                    <label for="curso">Curso:</label>
+                    <input type="text" id="curso" name="curso" required>
+                </fieldset>
+
+                <button type="submit" class="btnEnviar">Enviar</button>
+                <button type="reset" class="btnEnviar">Limpar</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer">
+            <div class="footer-logo">
+                <img src="imagens/logoGoverno.png" alt="Logo do Governo">
+                <h2>Governo do Estado do Paraná</h2>
             </div>
-            <div class="copyright">
-                <p>© 2025 Governo do Estado do Paraná • Todos os direitos reservados</p>
+            <div class="codigos">
+                <h3>Links úteis</h3>
+                <ul>
+                    <li><a href="#">Sobre</a></li>
+                    <li><a href="#">Política de Privacidade</a></li>
+                    <li><a href="#">Termos de Uso</a></li>
+                    <li><a href="#">Suporte</a></li>
+                </ul>
             </div>
-        </footer>
-    </div>
+            <div class="contatos">
+                <h3>Contato</h3>
+                <p>Email: rafaelpilonetto59@gmail.com</p>
+                <p>Email: christianmartinkoski@gmail.com</p>
+                <p>Telefone: (46) 99989-0251</p>
+                <p>Telefone: (46) 99414-639</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2025 Governo do Estado do Paraná • Todos os direitos reservados</p>
+        </div>
+    </footer>
 </body>
 </html>
-<!-- Documentos necessários:
-  - Histórico escolar até o 8º ano e boletim do 9º ano; - 
-  Original e Fotocópia da Certidão de Nascimento; -
-   RG e CPF; - Conta de luz de outubro ou novembro (COPEL) ou água (SANEPAR);
-    - Declaração de Vacinação (emitida pelo Posto de Saúde); 
-    - Número do Cartão NIS (se tiver Auxílio Brasil); - RG e CPF do(a) responsável.-->
+revisar types
+revisar redirecionamentos
+terminar js

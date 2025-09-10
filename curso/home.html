@@ -23,22 +23,54 @@
 
     <main>
         <div class="cursosProcurados">Cursos Disponíveis</div>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
+        <br><br><br><br><br><br>
+
+        <!-- Container do carrossel -->
         <div class="carrosel">
-            <div class="carousel" id="carousel">
-                <div class="card">Tecnico Em Desenvolvimento De Sistemas</div>
-                <div class="card">Formação De Docentes</div>
-                <div class="card">Tecnico Em Administração </div>
-                <div class="card">Tecnico Em Enfermagem</div>
-                <div class="card">Tecnico Em Agronegócio</div>
+            <div id="carousel" class="carousel">
+                <div class="card card1">
+                    <img src="imagens/logo_placeholder.png" alt="Logo do curso" class="logoCurso">
+                    <h3>Técnico em Desenvolvimento de Sistemas</h3>
+                    <p>Aprenda a programar e desenvolver sistemas completos para diversas plataformas.</p>
+                    <p class="duracao">Duração: 3-4 anos</p>
+                    <a href="formAluno.html" class="btnInscrever">Inscrever-se</a>
+                </div>
+
+                <div class="card card2">
+                    <img src="imagens/logo_placeholder.png" alt="Logo do curso" class="logoCurso">
+                    <h3>Formação de Docentes</h3>
+                    <p>Prepare-se para ensinar com técnicas modernas e metodologias eficazes.</p>
+                    <p class="duracao">Duração: 3-4 anos</p>
+                    <a href="formAluno.html" class="btnInscrever">Inscrever-se</a>
+                </div>
+
+                <div class="card card3">
+                    <img src="imagens/logo_placeholder.png" alt="Logo do curso" class="logoCurso">
+                    <h3>Técnico em Administração</h3>
+                    <p>Desenvolva habilidades para gerenciar empresas e recursos de forma eficiente.</p>
+                    <p class="duracao">Duração: 3-4 anos</p>
+                    <a href="formAluno.html" class="btnInscrever">Inscrever-se</a>
+                </div>
+
+                <div class="card card4">
+                    <img src="imagens/logo_placeholder.png" alt="Logo do curso" class="logoCurso">
+                    <h3>Técnico em Enfermagem</h3>
+                    <p>Aprenda cuidados de saúde e suporte clínico para diversas áreas médicas.</p>
+                    <p class="duracao">Duração: 3-4 anos</p>
+                    <a href="formAluno.html" class="btnInscrever">Inscrever-se</a>
+                </div>
+
+                <div class="card card5">
+                    <img src="imagens/logo_placeholder.png" alt="Logo do curso" class="logoCurso">
+                    <h3>Técnico em Agronegócio</h3>
+                    <p>Desenvolva competências para gestão e inovação no setor agrícola.</p>
+                    <p class="duracao">Duração: 3-4 anos</p>
+                    <a href="formAluno.html" class="btnInscrever">Inscrever-se</a>
+                </div>
             </div>
         </div>
 
+        <!-- JS do carrossel -->
         <script>
             const carousel = document.getElementById('carousel');
             const cards = [...document.querySelectorAll('.card')];
@@ -48,7 +80,19 @@
             function updateCarousel() {
                 cards.forEach((card, i) => {
                     const rotation = angleStep * (i - currentIndex);
-                    card.style.transform = `rotateY(${rotation}deg) translateZ(300px)`;
+                    let transform;
+
+                    if (i === currentIndex) {
+                        card.style.opacity = '1';
+                        transform = `rotateY(${rotation}deg) scale(1.05)`; 
+                        card.style.zIndex = '2';
+                    } else {
+                        card.style.opacity = '0';
+                        transform = `rotateY(${rotation}deg) scale(0.9)`; 
+                        card.style.zIndex = '1';
+                    }
+
+                    card.style.transform = transform;
                 });
             }
 
@@ -62,16 +106,18 @@
                 updateCarousel();
             }
 
-            // arrastar com o mouse
+            // Arrastar com o mouse
             let startX = 0;
             let isDragging = false;
+
             carousel.addEventListener('mousedown', e => {
                 startX = e.clientX;
                 isDragging = true;
             });
+
             document.addEventListener('mouseup', e => {
                 if (isDragging) {
-                    let deltaX = e.clientX - startX;
+                    const deltaX = e.clientX - startX;
                     if (deltaX > 50) prevCourse();
                     else if (deltaX < -50) nextCourse();
                 }
@@ -83,31 +129,31 @@
     </main>
 
     <footer>
-            <div class="footer">
-                <div class="footer-logo">
-                    <img src="imagens/logoGoverno.png" alt="Logo do Governo">
-                    <h2>Governo do Estado do Paraná</h2>
-                </div>
-                <div class="codigos">
-                    <h3>Links úteis</h3>
-                    <ul>
-                        <li><a href="#">Sobre</a></li>
-                        <li><a href="#">Política de Privacidade</a></li>
-                        <li><a href="#">Termos de Uso</a></li>
-                        <li><a href="#">Suporte</a></li>
-                    </ul>
-                </div>
-                <div class="contatos">
-                    <h3>Contato</h3>
-                    <p>Email: rafaelpilonetto59@gmail.com</p>
-                    <p>Email: christianmartinkoski@gmail.com</p>
-                    <p>Telefone: (46) 99989-0251</p>
-                    <p>Telefone: (46) 99414-639</p>
-                </div>
+        <div class="footer">
+            <div class="footer-logo">
+                <img src="imagens/logoGoverno.png" alt="Logo do Governo">
+                <h2>Governo do Estado do Paraná</h2>
             </div>
-            <div class="copyright">
-                <p>© 2025 Governo do Estado do Paraná • Todos os direitos reservados</p>
+            <div class="codigos">
+                <h3>Links úteis</h3>
+                <ul>
+                    <li><a href="#">Sobre</a></li>
+                    <li><a href="#">Política de Privacidade</a></li>
+                    <li><a href="#">Termos de Uso</a></li>
+                    <li><a href="#">Suporte</a></li>
+                </ul>
             </div>
-        </footer>
+            <div class="contatos">
+                <h3>Contato</h3>
+                <p>Email: rafaelpilonetto59@gmail.com</p>
+                <p>Email: christianmartinkoski@gmail.com</p>
+                <p>Telefone: (46) 99989-0251</p>
+                <p>Telefone: (46) 99414-639</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2025 Governo do Estado do Paraná • Todos os direitos reservados</p>
+        </div>
+    </footer>
 </body>
 </html>

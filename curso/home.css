@@ -1,226 +1,311 @@
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    body {
-        font-family: Arial, sans-serif;
-    }
+body {
+    font-family: Arial, sans-serif;
+}
 
-    /* HEADER */
+/* HEADER */
+.bannerTopo {
+    width: 100%;
+    background: linear-gradient(to bottom, #1e2a4f, #ffffff);
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.bannerTopo img.logoTopo {
+    width: 80px;
+    margin-bottom: 5px;
+}
+
+.textosTopo {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.bannerTopo h1 {
+    font-size: 24px;
+}
+
+.subtitulo {
+    font-size: 14px;
+}
+
+/* BARRA DE PESQUISA */
+.barra-pesquisa {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    max-width: 500px;
+    border: 2px solid #1E2A4F;
+    border-radius: 30px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.barra-pesquisa input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+}
+
+.barra-pesquisa button {
+    background: #1E2A4F;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.barra-pesquisa button:hover {
+    background: #2444a7;
+}
+
+/* MAIN */
+main {
+    min-height: 400px;
+    margin-bottom: 40px;
+}
+
+.cursosProcurados {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 24px;
+    color: #1E2A4F;
+}
+
+/* Container do carrossel */
+/* Container do carrossel */
+.carrosel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 550px; /* mais espaço vertical */
+    margin-bottom: 50px;
+}
+
+/* Container do carrossel */
+.carrosel {
+    display: flex;
+    justify-content: center; /* centraliza horizontalmente */
+    align-items: center;     /* centraliza verticalmente */
+    height: 550px;           /* altura suficiente */
+    margin: 0 auto 50px auto; /* margem automática horizontal */
+}
+
+/* Carousel */
+.carousel {
+    position: relative;
+    width: 95%;
+    max-width: 750px;
+    height: 450px;
+    perspective: 1200px;
+    transform-style: preserve-3d;
+    overflow: visible;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Card */
+.card {
+    position: absolute;
+    width: 550px;   /* maior largura */
+    height: 420px;  /* maior altura */
+    background: #0000009b;
+    border-radius: 20px;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    backface-visibility: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    transition: transform 1.2s, box-shadow 0.3s, opacity 0.5s;
+    cursor: grab;
+    user-select: none;
+    padding: 25px;
+    overflow: visible;
+}
+
+
+
+.card:active {
+    cursor: grabbing;
+}
+
+/* Gradientes diferentes para cada curso */
+.card1 { background: linear-gradient(135deg, #1E2A4F, #3753AA); }
+.card2 { background: linear-gradient(135deg, #6A1B9A, #AB47BC); }
+.card3 { background: linear-gradient(135deg, #FF6900, #FF914D); }
+.card4 { background: linear-gradient(135deg, #009688, #4DB6AC); }
+.card5 { background: linear-gradient(135deg, #FFC107, #FFD54F); }
+
+/* Logo do curso */
+.card img.logoCurso {
+    width: 80px;
+    height: auto;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    border: 2px solid rgba(255,255,255,0.3);
+    background: white;
+}
+
+/* Título do curso */
+.card h3 {
+    margin-bottom: 10px;
+    font-size: 22px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+/* Descrição */
+.card p {
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+/* Duração */
+.card .duracao {
+    font-style: italic;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+/* Botão Inscrever-se */
+.btnInscrever {
+    display: inline-block;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #1E2A4F, #3753AA);
+    color: white;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.btnInscrever:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    background: linear-gradient(135deg, #2444A7, #5A6ED1);
+}
+
+/* FOOTER */
+footer {
+    background: linear-gradient(to bottom, #e8e8e800, #1E2A4F);
+    color: rgb(0, 0, 0);
+    padding: 40px 20px 10px;
+    margin-top: 40px;
+    font-family: Arial, sans-serif;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
+    gap: 30px;
+}
+
+.footer-logo {
+    flex: 1 1 250px;
+}
+
+.footer-logo img {
+    width: 90px;
+    height: auto;
+}
+
+.footer-logo h2 {
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.codigos,
+.contatos {
+    flex: 1 1 200px;
+}
+
+.contatos h3,
+.codigos h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    border-bottom: 2px solid #000000;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.codigos ul {
+    list-style: none;
+}
+
+.codigos ul li {
+    margin: 6px 0;
+}
+
+.codigos ul li a {
+    text-decoration: none;
+    color: #000000;
+    transition: 0.3s;
+}
+
+.codigos ul li a:hover {
+    color: #000000;
+}
+
+.contatos p {
+    margin: 6px 0;
+}
+
+a {
+    text-decoration: none; 
+    color: inherit; 
+    display: block; 
+}
+
+.copyright {
+    text-align: center;
+    margin-top: 30px;
+    border-top: 1px solid #444;
+    padding-top: 10px;
+    font-size: 14px;
+    color: #555555;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
     .bannerTopo {
-        width: 100%;
-        background: linear-gradient(to bottom, #1e2a4f, #ffffff);
-        color: #000;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
         padding: 10px 0;
     }
-
-    .bannerTopo img.logoTopo {
-        width: 80px;
-        margin-bottom: 5px;
-    }
-
-    .textosTopo {
-        text-align: center;
-        margin-bottom: 10px;
-    }
-
     .bannerTopo h1 {
-        font-size: 24px;
+        font-size: 20px;
     }
-
     .subtitulo {
-        font-size: 14px;
+        font-size: 12px;
     }
-
-    /* BARRA DE PESQUISA */
-    .barra-pesquisa {
-        display: flex;
-        align-items: center;
-        width: 90%;
-        max-width: 500px;
-        border: 2px solid #1E2A4F;
-        border-radius: 30px;
-        overflow: hidden;
-        margin-bottom: 10px;
-    }
-
-    .barra-pesquisa input {
-        flex: 1;
-        padding: 10px;
-        border: none;
-        outline: none;
-        font-size: 16px;
-    }
-
-    .barra-pesquisa button {
-        background: #1E2A4F;
-        color: white;
-        border: none;
-        padding: 10px 15px;
-        cursor: pointer;
-        transition: 0.3s;
-    }
-
-    .barra-pesquisa button:hover {
-        background: #2444a7;
-    }
-
-    /* MAIN */
-    main {
-        min-height: 400px;
-        margin-bottom: 40px;
-    }
-
-    .cursosProcurados {
-        text-align: center;
-        margin: 20px 0;
-        font-size: 24px;
-        color: #1E2A4F;
-    }
-
-    /* CARROSSEL */
-    .carrosel {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 50px;
-    }
-
-    .carousel {
-        position: relative;
-        width: 90%;
-        max-width: 600px;
-        height: 350px;
-        perspective: 1000px;
-        transform-style: preserve-3d;
-    }
-
     .card {
-        position: absolute;
-        width: 500px;
+        width: 200px;
         height: 300px;
-        background: #0000009b;
-        border-radius: 20px;
-        color: white;
-        font-size: 20px;
-        font-weight: bold;
-        display: flex;
-        flex-direction: column; /* organiza itens em coluna */
-        justify-content: center; /* centraliza verticalmente */
-        align-items: center; /* centraliza horizontalmente */
-        text-align: center; /* centraliza texto */
-        backface-visibility: hidden;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        transition: transform 1.2s;
-        cursor: grab;
-        user-select: none;
-        padding: 15px; /* deixa o conteúdo longe das bordas */
+        font-size: 16px;
+        padding: 15px;
     }
-
-    .card:active {
-        cursor: grabbing;
-    }
-
-    footer {
-        background: linear-gradient(to bottom, #e8e8e800, #1E2A4F);
-        color: rgb(0, 0, 0);
-        padding: 40px 20px 10px;
-        margin-top: 40px;
-        font-family: Arial, sans-serif;
-    }
-
-    .footer {
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        max-width: 1200px;
-        margin: auto;
-        gap: 30px;
-    }
-
-    .footer-logo {
-        flex: 1 1 250px;
-    }
-
-    .footer-logo img {
-        width: 90px;
-        height: auto;
-    }
-
-    .footer-logo h2 {
-        margin-top: 10px;
-        font-size: 20px;
-    }
-
-    .codigos,
-    .contatos {
-        flex: 1 1 200px;
-    }
-
-    .contatos h3,
-    .codigos h3 {
-        margin-bottom: 10px;
+    .card h3 {
         font-size: 18px;
-        border-bottom: 2px solid #000000;
-        display: inline-block;
-        padding-bottom: 5px;
     }
-
-    .codigos ul {
-        list-style: none;
-    }
-
-    .codigos ul li {
-        margin: 6px 0;
-    }
-
-    .codigos ul li a {
-        text-decoration: none;
-        color: #000000;
-        transition: 0.3s;
-    }
-
-    .codigos ul li a:hover {
-        color: #000000;
-    }
-
-    .contatos p {
-        margin: 6px 0;
-    }
-
-    a {
-        text-decoration: none; 
-        color: inherit; 
-        display: block; 
-    }
-
-    .copyright {
-        text-align: center;
-        margin-top: 30px;
-        border-top: 1px solid #444;
-        padding-top: 10px;
+    .card p {
         font-size: 14px;
-        color: #555555;
     }
-
-    /* RESPONSIVO */
-    @media (max-width: 768px) {
-        .bannerTopo {
-            padding: 10px 0;
-        }
-        .bannerTopo h1 {
-            font-size: 20px;
-        }
-        .subtitulo {
-            font-size: 12px;
-        }
-        .card {
-            width: 200px;
-            height: 250px;
-            font-size: 18px;
-        }
-    }
+}

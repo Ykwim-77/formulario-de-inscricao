@@ -1,17 +1,177 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-    <head>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="tela_form_adm.css">
-    </head>
-    <body>
-        <header>
-        </header>
-        <main>
-        </main>
-        <footer>
-        </footer>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="tela_form_adm.css"> <!-- Mesmo CSS do formulário aluno -->
+    <title>Ficha de Pontuação - Administração</title>
+</head>
+<body>
+    <header>
+        <div class="bannerTopo">
+            <img src="imagens/logoGoverno.png" alt="Logo do Governo" class="logoTopo">
+            <div class="textosTopo">
+                <h1>Ficha de Pontuação - Cursos Integrados</h1>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <form class="formulario">
+            <fieldset>
+                <legend>Informações do Candidato</legend>
+                <label for="numeroInscricao">Número da Inscrição:</label>
+                <input type="text" id="numeroInscricao" name="numeroInscricao">
+
+                <label for="nomeCandidato">Nome do(a) Candidato(a):</label>
+                <input type="text" id="nomeCandidato" name="nomeCandidato">
+
+                <label for="cgm">CGM:</label>
+                <input type="text" id="cgm" name="cgm">
+
+                <label for="curso">Curso:</label>
+                <input type="text" id="curso" name="curso">
+
+                <label for="turno">Turno:</label>
+                <input type="text" id="turno" name="turno">
+            </fieldset>
+
+            <fieldset>
+                <legend>Beneficiário de Programas Federais</legend>
+                <label>
+                    <input type="radio" name="beneficiario" value="nao">
+                    Não (0 pontos)
+                </label>
+                <label>
+                    <input type="radio" name="beneficiario" value="sim">
+                    Sim – Informar o Número NIS (10 pontos)
+                </label>
+                <input type="text" placeholder="Número NIS" name="nis">
+            </fieldset>
+
+            <fieldset>
+                <legend>Origem Escolar</legend>
+                <label>
+                    <input type="radio" name="origemEscolar" value="redePublicaIntegral">
+                    Ensino Fundamental cursado integralmente em Instituição da Rede Pública ou bolsista integral da Rede Particular (85)
+                </label>
+                <label>
+                    <input type="radio" name="origemEscolar" value="parcial01">
+                    Ensino Fundamental cursado parcialmente na Rede Pública, com no máximo 01 ano na Rede Particular ou bolsista parcial da Rede Particular (80)
+                </label>
+                <label>
+                    <input type="radio" name="origemEscolar" value="parcial02">
+                    Ensino Fundamental cursado parcialmente na Rede Pública, com no mínimo 02 anos e máximo de 03 anos na Rede Particular (75)
+                </label>
+                <label>
+                    <input type="radio" name="origemEscolar" value="redeParticularIntegral">
+                    Ensino Fundamental cursado integralmente em Rede Particular (70)
+                </label>
+            </fieldset>
+
+            <fieldset>
+                <legend>Médias 9º ano</legend>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Disciplinas</th>
+                            <th>6º Ano</th>
+                            <th>7º Ano</th>
+                            <th>8º Ano</th>
+                            <th>9º Ano</th>
+                            <th>Média Aritmética</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Língua Portuguesa</td>
+                            <td><input type="number" min="0" max="100"></td>
+                            <td><input type="number" min="0" max="100"></td>
+                            <td><input type="number" min="0" max="100"></td>
+                            <td><input type="number" min="0" max="100"></td>
+                            <td><input type="number" min="0" max="100" readonly></td>
+                        </tr>
+                        <tr>
+                            <td>Matemática</td>
+                            <td><input type="number" min="0" max="100"></td>
+                            <td><input type="number" min="0" max="100"></td>
+                            <td><input type="number" min="0" max="100"></td>
+                            <td><input type="number" min="0" max="100"></td>
+                            <td><input type="number" min="0" max="100" readonly></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </fieldset>
+
+            <fieldset>
+                <legend>Pontuação Final</legend>
+                <label for="pontuacaoBeneficio">Pontuação de Beneficiário + Origem Escolar:</label>
+                <input type="number" id="pontuacaoBeneficio" name="pontuacaoBeneficio">
+
+                <label for="entrevista">Entrevista (0 a 100):</label>
+                <input type="number" id="entrevista" name="entrevista" min="0" max="100">
+
+                <label for="totalGeral">Total Geral da Pontuação:</label>
+                <input type="number" id="totalGeral" name="totalGeral" readonly>
+            </fieldset>
+
+            <fieldset>
+                <legend>Declarações</legend>
+                <p>Estou de acordo com a pontuação que obtive acima.</p>
+                <label for="assinaturaCandidato">Assinatura do candidato:</label>
+                <input type="text" id="assinaturaCandidato" name="assinaturaCandidato">
+
+                <label for="nomeFuncionario">Nome do funcionário:</label>
+                <input type="text" id="nomeFuncionario" name="nomeFuncionario">
+
+                <p>Comprovante de inscrição para classificação – 2024.</p>
+                <label for="numeroInscricaoComprovante">Número da inscrição:</label>
+                <input type="text" id="numeroInscricaoComprovante" name="numeroInscricaoComprovante">
+
+                <label for="nomeComprovante">Nome:</label>
+                <input type="text" id="nomeComprovante" name="nomeComprovante">
+
+                <label for="totalPontos">Total de pontos obtidos:</label>
+                <input type="number" id="totalPontos" name="totalPontos">
+
+                <label for="cursoComprovante">Curso:</label>
+                <input type="text" id="cursoComprovante" name="cursoComprovante">
+
+                <label for="turnoComprovante">Turno:</label>
+                <input type="text" id="turnoComprovante" name="turnoComprovante">
+
+                <p>Dois Vizinhos, ____ de _________________ de 20___.</p>
+            </fieldset>
+
+            <button type="submit" class="btnEnviar">Enviar</button>
+        </form>
+    </main>
     <footer>
+        <div class="footer">
+            <div class="footer-logo">
+                <img src="imagens/logoGoverno.png" alt="Logo do Governo">
+                <h2>Governo do Estado do Paraná</h2>
+            </div>
+            <div class="codigos">
+                <h3>Links úteis</h3>
+                <ul>
+                    <li><a href="#">Sobre</a></li>
+                    <li><a href="#">Política de Privacidade</a></li>
+                    <li><a href="#">Termos de Uso</a></li>
+                    <li><a href="#">Suporte</a></li>
+                </ul>
+            </div>
+            <div class="contatos">
+                <h3>Contato</h3>
+                <p>Email: rafaelpilonetto59@gmail.com</p>
+                <p>Email: christianmartinkoski@gmail.com</p>
+                <p>Telefone: (46)999890251</p>
+                <p>Telefone: (46)99414639</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2025 Governo do Estado do Paraná • Todos os direitos reservados</p>
+        </div>
     </footer>
+</body>
 </html>
