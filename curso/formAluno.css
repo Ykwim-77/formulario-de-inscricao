@@ -11,7 +11,7 @@ body {
 .bannerTopo {
     width: 100%;
     height: 200px;
-    background: linear-gradient(to bottom, #1e2a4f, #ffffff);
+    background: linear-gradient(to bottom, #5374d8, #ffffff);
     color: #000000;
     display: flex;
     align-items: center;
@@ -171,7 +171,7 @@ body {
     margin-bottom: 15px;
     text-decoration: underline;
     border: none;              
-    border-bottom: 2px solid #1E2A4F; 
+    border-bottom: 2px solid #5374d8; 
     outline: none;            
     padding: 5px 0;          
     font-size: 16px;
@@ -186,7 +186,7 @@ body {
 #rg{
     width: 220px;           /* ou use % se preferir responsivo */
     border: none;
-    border-bottom: 2px solid #1E2A4F;
+    border-bottom: 2px solid #5374d8;
     outline: none;
     padding: 5px 0;
     font-size: 16px;
@@ -196,7 +196,7 @@ body {
 #expedido {
     width: 115px;           /* ou use % se preferir responsivo */
     border: none;
-    border-bottom: 2px solid #1E2A4F;
+    border-bottom: 2px solid #5374d8;
     outline: none;
     padding: 5px 0;
     font-size: 16px;
@@ -206,7 +206,7 @@ body {
 #cpf{
     width: 215px;           /* ou use % se preferir responsivo */
     border: none;
-    border-bottom: 2px solid #1E2A4F;
+    border-bottom: 2px solid #5374d8;
     outline: none;
     padding: 5px 0;
     font-size: 16px;
@@ -214,12 +214,12 @@ body {
     transition: border-color 0.3s;
 }
 #data_nascimento{
-    width: 60%;
+    width: 77%;
     padding: 8px;
     margin-bottom: 15px;
     text-decoration: underline;
     border: none;              
-    border-bottom: 2px solid #1E2A4F; 
+    border-bottom: 2px solid #5374d8; 
     outline: none;            
     padding: 5px 0;          
     font-size: 16px;
@@ -232,7 +232,7 @@ body {
     margin-bottom: 15px;
     text-decoration: underline;
     border: none;              
-    border-bottom: 2px solid #1E2A4F; 
+    border-bottom: 2px solid #5374d8; 
     outline: none;            
     padding: 5px 0;          
     font-size: 16px;
@@ -240,12 +240,12 @@ body {
     transition: border-color 0.3s;
 }
 #numero{
-    width: 10%;
+    width: 12%;
     padding: 8px;
     margin-bottom: 15px;
     text-decoration: underline;
     border: none;              
-    border-bottom: 2px solid #1E2A4F; 
+    border-bottom: 2px solid #5374d8; 
     outline: none;            
     padding: 5px 0;          
     font-size: 16px;
@@ -258,9 +258,9 @@ body {
     margin-bottom: 15px;
 }
 #bairro{
-    width: 35%;             /* ou use % se preferir responsivo */
+    width: 30%;             /* ou use % se preferir responsivo */
     border: none;
-    border-bottom: 2px solid #1E2A4F;
+    border-bottom: 2px solid #5374d8;
     outline: none;
     padding: 5px 0;
     font-size: 16px;
@@ -270,7 +270,7 @@ body {
 #municipio {
     width: 25%;             /* ou use % se preferir responsivo */
     border: none;
-    border-bottom: 2px solid #1E2A4F;
+    border-bottom: 2px solid #5374d8;
     outline: none;
     padding: 5px 0;
     font-size: 16px;
@@ -280,16 +280,96 @@ body {
 #uf{
     width: 10%;             /* ou use % se preferir responsivo */
     border: none;
-    border-bottom: 2px solid #1E2A4F;
+    border-bottom: 2px solid #5374d8;
     outline: none;
     padding: 5px 0;
     font-size: 16px;
     background: transparent;
     transition: border-color 0.3s;
 }
+.telefones {
+    display: flex;          /* coloca os três inputs na mesma linha */
+    gap: 20px;              /* espaço entre eles */
+    margin-bottom: 15px;
+}
+#telefone_fixo{
+    width: 35%;             /* ou use % se preferir responsivo */
+    border: none;
+    border-bottom: 2px solid #5374d8;
+    outline: none;
+    padding: 5px 0;
+    font-size: 16px;
+    background: transparent;
+    transition: border-color 0.3s;
+}
+#celular_a {
+    width: 32%;             /* ou use % se preferir responsivo */
+    border: none;
+    border-bottom: 2px solid #5374d8;
+    outline: none;
+    padding: 5px 0;
+    font-size: 16px;
+    background: transparent;
+    transition: border-color 0.3s;
+}
+#email{
+    width: 90%;
+    padding: 8px;
+    margin-bottom: 15px;
+    text-decoration: underline;
+    border: none;              
+    border-bottom: 2px solid #5374d8; 
+    outline: none;            
+    padding: 5px 0;          
+    font-size: 16px;
+    background: transparent;              
+    transition: border-color 0.3s;
+}
+main h3{
+    color: #1e2a4f;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+#button{
+    background: #5374d8;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+#button:hover{
+    background: #14213d;
+}
+#enviar{
+    background: #5374d8;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+#enviar:hover{
+    background: #14213d;
+}
+.espaco{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
 
 footer {
-    background: linear-gradient(to bottom, #e8e8e800, #1E2A4F);
+    background: linear-gradient(to bottom, #e8e8e800, #5374d8);
     color: rgb(0, 0, 0);
     padding: 40px 20px 10px;
     margin-top: 40px;
