@@ -56,7 +56,8 @@ li{
     min-width: 50%;
     background-image: url(imagens/logo-fundo-card.svg);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 250px;
+    background-position: center;
     filter:hue-rotate(20deg) brightness(140%);
     cursor: pointer;
 }
@@ -69,7 +70,7 @@ li{
     margin: 10px;
 }
 
-.linha-celular {
+.linha-id {
     text-align: right;
     font-weight: 750;
 }
@@ -89,110 +90,6 @@ li{
     font-weight: 750;
 }
 
-.modal {
-  display: none; /* escondido por padrão */
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.6); /* fundo escuro */
-  justify-content: center;
-  align-items: center;
-}
-
-.modal-conteudo {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  width: 80%;
-  height: 80vh;
-  text-align: start;
-}
-/* Modal base */
-.modal {
-  display: none;
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.6);
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-}
-
-.modal-conteudo {
-  background: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  width: 600px;
-  max-height: 90vh;
-  overflow-y: auto; /* scroll se passar do limite */
-  position: relative;
-}
-
-#fechar {
-  position: absolute;
-  top: 10px; right: 20px;
-  cursor: pointer;
-  font-size: 24px;
-}
-
-/* Formulário */
-form h3 {
-  margin-top: 20px;
-  font-size: 16px;
-  color: #333;
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 5px;
-}
-
-.form-grupo {
-  margin: 10px 0;
-  display: flex;
-  flex-direction: column;
-}
-
-.form-grupo label {
-  margin-bottom: 5px;
-  font-weight: bold;
-}
-
-.form-grupo input {
-  padding: 8px;
-  border: 1px solid #aaa;
-  border-radius: 6px;
-  font-size: 14px;
-}
-
-/* Colocar dois campos lado a lado */
-.form-duas-colunas {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 15px;
-  margin: 10px 0;
-}
-
-.form-radio {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  margin: 10px 0;
-}
-
-button {
-  margin-top: 20px;
-  padding: 10px 20px;
-  background: #000000;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: 0.3s;
-}
-
-button:hover {
-  background: #3b3b3b;
-}
 
 .principal{
   width: 80%;
@@ -259,7 +156,7 @@ button:hover {
   background: #1E2A4F;
   color: white;
   border: none;
-  padding: 10px 15px;
+  padding: 12px 15px;
   cursor: pointer;
   transition: 0.3s;
 }

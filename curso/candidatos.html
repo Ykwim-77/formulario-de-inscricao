@@ -14,7 +14,7 @@
         <p class="subtitulo">Portal Educacional</p>
       </div>
       <div class="barra-pesquisa">
-        <input type="text" placeholder="Pesquisar...">
+        <input type="text" id="Pesquisar" placeholder="Pesquisar...">
         <button type="submit">🔍</button>
       </div>
     </div>
@@ -22,219 +22,78 @@
   <div class="principal">
   <ul id="listaUsuarios"></ul>
   </div>
-<div id="modal" class="modal">
-  <div class="modal-conteudo">
-    <span id="fechar">&times;</span>
-    <h2>Editar Usuário</h2>
-
-    <form id="formUsuario">
-      <!-- Dados principais -->
-      <div class="form-grupo">
-        <label>Número da Inscrição:</label>
-        <input type="text" id="inputInscricao">
-      </div>
-
-      <div class="form-grupo">
-        <label> CGM:</label>
-        <input type="text" id="inputNome">
-      </div>
-
-      <div class="form-grupo">
-        <label>Curso:</label>
-        <input type="text" id="inputCurso">
-      </div>
-
-      <div class="form-grupo">
-        <label>Turno:</label>
-        <input type="text" id="inputTurno">
-      </div>
-
-      <!-- Beneficiário -->
-      <h3>Beneficiário de Programas Federais</h3>
-      <div class="form-radio">
-        <label><input type="radio" name="beneficiario" value="nao"> Não (00)</label>
-        <label><input type="radio" name="beneficiario" value="sim"> Sim</label>
-        <input type="text" id="inputNIS" placeholder="Número NIS">
-      </div>
-
-      <!-- Origem Escolar -->
-      <h3>Origem Escolar</h3>
-      <div class="form-radio">
-        <label><input type="radio" name="origem" value="85"> Rede Pública / Bolsista integral (85)</label>
-        <label><input type="radio" name="origem" value="80"> Parcial Pública (até 1 ano Particular) (80)</label>
-        <label><input type="radio" name="origem" value="75"> Parcial Pública (2-3 anos Particular) (75)</label>
-        <label><input type="radio" name="origem" value="70"> Integral Particular (70)</label>
-      </div>
-
-      <!-- Médias -->
-      <h3>Médias</h3>
-      <div class="form-grupo">
-        <label>Média 9º ano:</label>
-        <input type="number" id="inputMedia9" min="0" max="100">
-      </div>
-
-      <!-- Disciplinas -->
-      <h3>Disciplinas</h3>
-      <div class="form-duas-colunas">
-        <div>
-          <label>Língua Portuguesa:</label>
-          <input type="number" id="inputPortugues" min="0" max="100">
-        </div>
-        <div>
-          <label>Matemática:</label>
-          <input type="number" id="inputMatematica" min="0" max="100">
-        </div>
-      </div>
-
-      <div class="form-grupo">
-        <label>Média Aritmética (0-100):</label>
-        <input type="number" id="inputMediaDisciplinas" min="0" max="100">
-      </div>
-
-      <!-- Outros -->
-      <h3>Avaliações</h3>
-      <div class="form-duas-colunas">
-        <div>
-          <label>Pontuação Beneficiário + Origem:</label>
-          <input type="number" id="inputPontuacaoBE" min="0" max="100">
-        </div>
-        <div>
-          <label>Entrevista (0-100):</label>
-          <input type="number" id="inputEntrevista" min="0" max="100">
-        </div>
-      </div>
-
-      <div class="form-grupo">
-        <label>Total Geral da Pontuação:</label>
-        <input type="number" id="inputTotal" min="0" max="100">
-      </div>
-
-      <!-- Botão -->
-      <button type="submit">Salvar</button>
-    </form>
-  </div>
-</div>
-        <footer>
-            <div class="footer">
-                <div class="footer-logo">
-                    <img src="./imagens/logoGoverno.png" alt="Logo do Governo">
-                    <h2>Governo do Estado do Paraná</h2>
-                </div>
-                <div class="codigos">
-                    <h3>Links úteis</h3>
-                    <ul>
-                        <li><a href="#">Sobre</a></li>
-                        <li><a href="#">Política de Privacidade</a></li>
-                        <li><a href="#">Termos de Uso</a></li>
-                        <li><a href="#">Suporte</a></li>
-                    </ul>
-                </div>
-                <div class="contatos">
-                    <h3>Contato</h3>
-                    <p>Email: rafaelpilonetto59@gmail.com</p>
-                    <p>Email: christianmartinkoski@gmail.com</p>
-                    <p>Telefone: (46)999890251</p>
-                    <p>Telefone: (46)99414639</p>
-                </div>
+<ul id="listaUsuarios"></ul>
+    <footer>
+        <div class="footer">
+            <div class="footer-logo">
+                <img src="imagens/logoGoverno.png" alt="Logo do Governo">
+                <h2>Governo do Estado do Paraná</h2>
             </div>
-            <div class="copyright">
-                <p>© 2025 Governo do Estado do Paraná • Todos os direitos reservados</p>
+            <div class="codigos">
+                <h3>Links úteis</h3>
+                <ul>
+                    <li><a href="#">Sobre</a></li>
+                    <li><a href="#">Política de Privacidade</a></li>
+                    <li><a href="#">Termos de Uso</a></li>
+                    <li><a href="#">Suporte</a></li>
+                </ul>
             </div>
-        </footer>
-  <script>
- let usuarioSelecionadoId = null; // Guarda o id do usuário que vai ser editado
-
-// Pega a lista de usuários da API
-fetch("http://localhost:3000/candidatos")
-  .then(res => res.json())
-  .then(dados => {
-    const lista = document.getElementById("listaUsuarios");
-
-    dados.forEach(usuario => {
-      const item = document.createElement("li");
-      item.classList.add("candidato");
-      item.innerHTML = `
-        <div class="informacoes">
-          <div class="info linha-nome">Nome: ${usuario.nome}</div>
-          <div class="info linha-celular">Celular: ${usuario.celular_a}</div>
-          <div class="info linha-cidade">Cidade: ${usuario.cidade}</div>
-          <div class="info linha-curso">Curso: ${usuario.curso}</div>
+            <div class="contatos">
+                <h3>Contato</h3>
+                <p>Email: rafaelpilonetto59@gmail.com</p>
+                <p>Email: christianmartinkoski@gmail.com</p>
+                <p>Telefone: (46)999890251</p>
+                <p>Telefone: (46)99414639</p>
+            </div>
         </div>
-      `;
+        <div class="copyright">
+            <p>© 2025 Governo do Estado do Paraná • Todos os direitos reservados</p>
+        </div>
+    </footer>
+<script>
+  fetch("http://localhost:3000/candidatos")
+    .then(res => res.json())
+    .then(dados => {
+      const lista = document.getElementById("listaUsuarios");
 
-      // Ao clicar no usuário, abre o modal e salva o id
-      item.addEventListener("click", () => {
-        usuarioSelecionadoId = usuario.id;
-        document.getElementById("modal").style.display = "flex";
+      // função que renderiza candidatos
+      function renderizar(listaFiltrada) {
+        lista.innerHTML = ""; // limpa antes de renderizar
 
-        // Preenche os inputs com os dados do usuário
-        document.getElementById("inputInscricao").value = usuario.id;
-        document.getElementById("inputNome").value = usuario.cpf;
-        document.getElementById("inputCurso").value = usuario.curso;
+        listaFiltrada.forEach(usuario => {
+          const item = document.createElement("li");
+          item.classList.add("candidato");
+          item.innerHTML = `
+            <a href="./tela_form_adm.html?id=${usuario.id}">
+              <div class="informacoes">
+                <div class="info linha-nome">Nome: ${usuario.nome}</div>
+                <div class="info linha-id">ID: ${usuario.id}</div>
+                <div class="info linha-cidade">Cidade: ${usuario.cidade}</div>
+                <div class="info linha-curso">Curso: ${usuario.curso}</div>
+              </div>
+            </a>
+          `;
+          lista.appendChild(item);
+        });
+      }
+
+      // renderiza todos de início
+      renderizar(dados);
+
+      // pesquisa
+      const pesquisa = document.getElementById("Pesquisar");
+      pesquisa.addEventListener("input", () => {
+        const valor = pesquisa.value.toLowerCase();
+        const filtrados = dados.filter(usuario =>
+          usuario.nome.toLowerCase().includes(valor) ||
+          usuario.cidade.toLowerCase().includes(valor) ||
+          usuario.curso.toLowerCase().includes(valor) ||
+          String(usuario.id).includes(valor)
+        );
+        renderizar(filtrados);
       });
-
-      lista.appendChild(item);
     });
-  });
+</script>
 
-// Captura do form **fora do forEach**
-const form = document.getElementById("formUsuario");
-
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
-
-  if (!usuarioSelecionadoId) return alert("Selecione um usuário primeiro!");
-
-  const turno = document.getElementById("inputTurno").value;
-  const beneficiario = document.querySelector("input[name='beneficiario']:checked")?.value;
-  const nis = document.getElementById("inputNIS").value;
-  const origem_escolar = document.querySelector("input[name='origem']:checked")?.value;
-  const media_9ano = document.getElementById("inputMedia9").value;
-  const portugues_9ano = document.getElementById("inputPortugues").value;
-  const matematica_9ano = document.getElementById("inputMatematica").value;
-  const media_final_disciplinas = document.getElementById("inputMediaDisciplinas").value;
-  const pontuacao_benef_origem = document.getElementById("inputPontuacaoBE").value;
-  const entrevista = document.getElementById("inputEntrevista").value;
-  const total_geral = document.getElementById("inputTotal").value;
-
-  const usuarioAtualizado = {};
-
-  if (turno) usuarioAtualizado.turno = turno;
-  if (beneficiario) usuarioAtualizado.beneficiario = beneficiario;
-  if (nis) usuarioAtualizado.nis = nis;
-  if (origem_escolar) usuarioAtualizado.origem_escolar = origem_escolar;
-  if (media_9ano) usuarioAtualizado.media_9ano = Number(media_9ano);
-  if (portugues_9ano) usuarioAtualizado.portugues_9ano = Number(portugues_9ano);
-  if (matematica_9ano) usuarioAtualizado.matematica_9ano = Number(matematica_9ano);
-  if (media_final_disciplinas) usuarioAtualizado.media_final_disciplinas = Number(media_final_disciplinas);
-  if (pontuacao_benef_origem) usuarioAtualizado.pontuacao_benef_origem = Number(pontuacao_benef_origem);
-  if (entrevista) usuarioAtualizado.entrevista = Number(entrevista);
-  if (total_geral) usuarioAtualizado.total_geral = Number(total_geral);
-
-  try {
-    const response = await fetch(`http://localhost:3000/candidatos/${usuarioSelecionadoId}`, {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(usuarioAtualizado),
-    });
-
-    if (!response.ok) throw new Error("Erro ao atualizar usuário");
-
-    const data = await response.json();
-    alert("Usuário atualizado com sucesso!");
-    console.log("Resposta da API:", data);
-    document.getElementById("modal").style.display = "none";
-  } catch (error) {
-    console.error("Erro:", error);
-    alert("Erro ao atualizar usuário!");
-  }
-});
-const modal = document.getElementById("modal");
-modal.addEventListener("click", (e) => {
-  if (e.target === modal) {
-    modal.style.display = "none";
-  }
-});
-  </script>
 </body>
 </html>

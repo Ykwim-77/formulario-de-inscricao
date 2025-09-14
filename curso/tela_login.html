@@ -37,7 +37,7 @@
                     </div>
                 </div>
                 <div class="Enviar">
-                     <a href="candidatos.html" class="botaoEntrar">Entrar</a>
+                     <button type="submit" class="botaoEnviar">Enviar</button>
                 </div>
             </form>
         </div>
@@ -68,7 +68,23 @@
         <div class="copyright">
             <p>© 2025 Governo do Estado do Paraná • Todos os direitos reservados</p>
         </div>
-    </footer> 
+    </footer>
+    <script>
+        const form = document.querySelector("form");
+         form.addEventListener("submit", function(event) {
+        event.preventDefault(); 
+        const email = document.getElementById("email").value;
+        const senha = document.getElementById("senha").value;
+        const codigo = document.getElementById("codigo").value;
+
+        if(email === "teste@gmail.com" && senha === "123" && codigo === "123456") {
+            alert("Login realizado com sucesso!");
+            window.location.href = "candidatos.html";
+        } else {
+            alert("Email, senha ou código incorretos!");
+        }
+    });
+    </script>
 </body>
 </html>
  
