@@ -1,48 +1,84 @@
-/* RESET */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background: #f5f5f5;
-    color: #000;
+body, footer, .footer {
+    font-family: 'Nunito', sans-serif;
 }
+
 
 /* HEADER */
 .bannerTopo {
     width: 100%;
-    background: linear-gradient(to bottom, #1e2a4f, #ffffff);
-    color: #000000;
+    height: 150px;
+    background: linear-gradient(to bottom, #1e2a4f, #ffffff00);
     display: flex;
-    flex-direction: column;
     align-items: center;
-    padding: 15px 0;
+    justify-content: space-between;
+    padding: 0px 30px;
+    box-sizing: border-box;
 }
 
-.bannerTopo img.logoTopo {
-    width: 80px;
-    margin-bottom: 5px;
+/* LADO ESQUERDO (logo + textos) */
+.lado-esquerdo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logoTopo {
+    width: 70px;
 }
 
 .textosTopo {
-    text-align: center;
-    margin-bottom: 10px;
+    text-align: left;
 }
 
 .bannerTopo h1 {
-    font-size: 24px;
-    color: #000000;
+    font-size: 20px;
+    margin: 0;
+    color: #1e1f20;
 }
 
-.botaoVoltar a {
-    font-size: 24px;
-    font-weight: bold;
-    color: #000;
-    margin-top: 5px;
+.subtitulo {
+    font-size: 14px;
+    margin: 0;
+    color:  #333;
+}
+
+/* NAV (DIREITA) */
+.main-nav {
+    background: transparent;
+}
+
+.main-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.main-nav li {
+    padding:35px;
+}
+
+.main-nav a {
+    color: #000000;
     text-decoration: none;
+    font-weight: 500;
+    padding: 5px 0;
+    border-bottom: 2px solid transparent;
+    transition: 0.3s;
+}
+
+.main-nav a:hover, 
+.main-nav a.nav-active {
+    border-bottom: 2px solid #FFC107;
 }
 
 /* MAIN FORM */
@@ -193,12 +229,40 @@ footer {
 }
 
 .codigos ul li a:hover {
-    color: #2444a7;
+    color: #000000;
 }
 
 .contatos p {
     margin: 6px 0;
 }
+/* Tooltip */
+.codigos ul li a {
+    position: relative; /* necessário para posicionar o tooltip */
+}
+
+.codigos ul li a::after {
+    content: attr(data-tooltip); /* pega o texto do atributo data-tooltip */ /*usei chatgpt aqui*/
+    position: absolute;
+    bottom: 125%; /* acima do link */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #1E2A4F;
+    color: #fff;
+    padding: 8px 10px;
+    border-radius: 6px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s;
+    font-size: 13px;
+    z-index: 10;
+}
+
+.codigos ul li a:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
 
 a {
     text-decoration: none; 
@@ -209,8 +273,9 @@ a {
 .copyright {
     text-align: center;
     margin-top: 30px;
-    border-top: 1px solid #444;
+    border-top: 1px solid #000000;
     padding-top: 10px;
     font-size: 14px;
-    color: #555555;
+    color: #000000;
 }
+

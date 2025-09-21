@@ -6,23 +6,41 @@
   <link rel="stylesheet" href="candidatos.css">
 </head>
 <body>
-<header>
-    <div class="bannerTopo">
-      <img src="./imagens/logoGoverno.png" alt="Logo do Governo" class="logoTopo">
-      <div class="textosTopo">
-        <h1>Governo do Estado do Paraná</h1>
-        <p class="subtitulo">Portal Educacional</p>
-      </div>
-      <div class="barra-pesquisa">
-        <input type="text" id="Pesquisar" placeholder="Pesquisar...">
-        <button type="submit">🔍</button>
-      </div>
-    </div>
-  </header>
+ <header>
+            <div class="bannerTopo">
+                
+                <!-- Esquerda -->
+                <div class="lado-esquerdo">
+                <img src="imagens/logoGoverno.png" alt="Logo do Governo" class="logoTopo">
+                <div class="textosTopo">
+                    <h1>Governo do Estado do Paraná</h1>
+                    <p class="subtitulo">Portal Educacional</p>
+                </div>
+                </div>
+                <!-- Direita -->
+                <nav class="main-nav">
+                <ul>
+                    <li><a href="home.html"><i class="fas fa-book"></i> Cursos</a></li>
+                    <li><a href="https://g1.globo.com/saude/noticia/2025/04/14/por-que-bolsonaro-fez-varias-cirurgias-apos-facada-quanto-mais-mexe-maior-o-risco.ghtml"><i class="fas fa-newspaper"></i> Notícias</a></li>
+                    <li><a href="#"><i class="fas fa-graduation-cap"></i>Estatisticas</a></li>
+                </ul>
+                </nav>
+
+            </div>
+            <!-- Toggle do Modo Escuro -->
+          <div class="dark-mode-toggle">
+            <label class="toggle-label" for="darkModeToggle">Modo Escuro</label>
+            <label class="toggle-switch">
+              <input type="checkbox" id="darkModeToggle">
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+        </header>
   <div class="principal">
   <ul id="listaUsuarios"></ul>
   </div>
 <ul id="listaUsuarios"></ul>
+    
     <footer>
         <div class="footer">
             <div class="footer-logo">
@@ -30,20 +48,19 @@
                 <h2>Governo do Estado do Paraná</h2>
             </div>
             <div class="codigos">
-                <h3>Links úteis</h3>
-                <ul>
-                    <li><a href="#">Sobre</a></li>
-                    <li><a href="#">Política de Privacidade</a></li>
-                    <li><a href="#">Termos de Uso</a></li>
-                    <li><a href="#">Suporte</a></li>
-                </ul>
+             <h3>Links úteis</h3>
+            <ul>
+                <li><a href="#" data-tooltip="Nosso formulário de inscrição foi desenvolvido para oferecer praticidade, segurança e rapidez no processo de cadastro.">Sobre</a></li>
+                <li><a href="#" data-tooltip="Levamos sua privacidade a sério. Todos os dados informados neste formulário são utilizados apenas para fins de cadastro e comunicação relacionada ao serviço.">Política de Privacidade</a></li>
+                <li><a href="#" data-tooltip="Ao utilizar este formulário, você concorda em fornecer informações verdadeiras e atualizadas. O uso indevido dos dados poderá resultar no cancelamento do cadastro.">Termos de Uso</a></li>
+                <li><a href="#" data-tooltip="Em caso de dúvidas, dificuldades ou problemas, entre em contato pelo e-mail ao lado.">Suporte</a></li>
+            </ul>
             </div>
+
             <div class="contatos">
                 <h3>Contato</h3>
-                <p>Email: rafaelpilonetto59@gmail.com</p>
-                <p>Email: christianmartinkoski@gmail.com</p>
-                <p>Telefone: (46)999890251</p>
-                <p>Telefone: (46)99414639</p>
+                <p>Email: governoparana@gmail.com</p>
+                <p>Telefone: (46)999890251 | (46)99414639</p>
             </div>
         </div>
         <div class="copyright">
@@ -93,6 +110,30 @@
         renderizar(filtrados);
       });
     });
+      document.addEventListener('DOMContentLoaded', function() {
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const body = document.body;
+    
+    // Verificar se há uma preferência salva
+    const darkModeEnabled = localStorage.getItem('darkMode') === 'true';
+    
+    // Aplicar o modo escuro se estiver habilitado
+    if (darkModeEnabled) {
+      body.classList.add('dark-mode');
+      darkModeToggle.checked = true;
+    }
+    
+    // Alternar modo escuro quando o toggle for clicado
+    darkModeToggle.addEventListener('change', function() {
+      if (this.checked) {
+        body.classList.add('dark-mode');
+        localStorage.setItem('darkMode', 'true');
+      } else {
+        body.classList.remove('dark-mode');
+        localStorage.setItem('darkMode', 'false');
+      }
+    });
+  });
 </script>
 
 </body>

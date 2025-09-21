@@ -33,12 +33,10 @@
                     </div>
                     <div class="email-cgm-container">
                         <label for="email_cgm">Matricula ou CGM:</label>
-                        <input type="email" id="email_cgm" name="email_cgm" placeholder="12345678 | 123456789" required>
+                        <input type="text" id="email_cgm" name="email_cgm" placeholder="12345678 | 123456789" required>
                     </div>
                 </div>
-                <div class="Enviar">
-                     <a href="home.html" class="botaoEntrar">Entrar</a>
-                </div>
+                <button class="Enviar">Enviar</button>
             </form>
         </div>
     </main>
@@ -49,14 +47,15 @@
                 <h2>Governo do Estado do Paraná</h2>
             </div>
             <div class="codigos">
-                <h3>Links úteis</h3>
-                <ul>
-                    <li><a href="#">Sobre</a></li>
-                    <li><a href="#">Política de Privacidade</a></li>
-                    <li><a href="#">Termos de Uso</a></li>
-                    <li><a href="#">Suporte</a></li>
-                </ul>
+             <h3>Links úteis</h3>
+            <ul>
+                <li><a href="#" data-tooltip="Nosso formulário de inscrição foi desenvolvido para oferecer praticidade, segurança e rapidez no processo de cadastro.">Sobre</a></li>
+                <li><a href="#" data-tooltip="Levamos sua privacidade a sério. Todos os dados informados neste formulário são utilizados apenas para fins de cadastro e comunicação relacionada ao serviço.">Política de Privacidade</a></li>
+                <li><a href="#" data-tooltip="Ao utilizar este formulário, você concorda em fornecer informações verdadeiras e atualizadas. O uso indevido dos dados poderá resultar no cancelamento do cadastro.">Termos de Uso</a></li>
+                <li><a href="#" data-tooltip="Em caso de dúvidas, dificuldades ou problemas, entre em contato pelo e-mail ao lado.">Suporte</a></li>
+            </ul>
             </div>
+
             <div class="contatos">
                 <h3>Contato</h3>
                 <p>Email: rafaelpilonetto59@gmail.com</p>
@@ -68,7 +67,23 @@
         <div class="copyright">
             <p>© 2025 Governo do Estado do Paraná • Todos os direitos reservados</p>
         </div>
-    </footer> 
+    </footer>
+        <script>
+        const form = document.querySelector("form");
+         form.addEventListener("submit", function(event) {
+        event.preventDefault(); 
+        const email = document.getElementById("matricula").value;
+        const senha = document.getElementById("senha").value;
+        const codigo = document.getElementById("email_cgm").value;
+
+        if(email === "christian.martinkoski@escola.pr.gov.br" && senha === "123" && codigo === "123456") {
+            alert("Login realizado com sucesso!");
+            window.location.href = "home.html";
+        } else {
+            alert("Email, senha ou CGM incorretos!");
+        }
+    });
+    </script>
 </body>
 </html>
  

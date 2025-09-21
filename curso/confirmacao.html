@@ -8,25 +8,39 @@
 </head>
 <body>
     <header>
-        <div class="bannerTopo">
-            <img src="imagens/logoGoverno.png" alt="Logo do Governo" class="logoTopo">
-            <div class="textosTopo">
-                <h1>Governo do Estado do Paraná</h1>
-                <p class="subtitulo">Portal Educacional</p>
+            <div class="bannerTopo">
+                
+                <!-- Esquerda -->
+                <div class="lado-esquerdo">
+                <img src="imagens/logoGoverno.png" alt="Logo do Governo" class="logoTopo">
+                <div class="textosTopo">
+                    <h1>Governo do Estado do Paraná</h1>
+                    <p class="subtitulo">Portal Educacional</p>
+                </div>
+                </div>
+                <!-- Direita -->
+                <nav class="main-nav">
+                <ul>
+                    <li><a href="home.html"><i class="fas fa-book"></i> Cursos</a></li>
+                    <li><a href="https://g1.globo.com/saude/noticia/2025/04/14/por-que-bolsonaro-fez-varias-cirurgias-apos-facada-quanto-mais-mexe-maior-o-risco.ghtml"><i class="fas fa-newspaper"></i> Notícias</a></li>
+                    <li><a href="#"><i class="fas fa-graduation-cap"></i>Estatisticas</a></li>
+                </ul>
+                </nav>
+
             </div>
-        </div>
-    </header>
+        </header>
 
     <main>
         <div class="form-card" style="text-align: center; padding: 50px;">
             <h2>Inscrição Enviada com Sucesso!</h2>
             <p>Os dados do aluno foram recebidos e registrados com sucesso.</p>
             <p>Em breve você receberá informações adicionais por e-mail.</p>
-            
+            <button onclick="enviarEmail()">Enviar Confirmação por E-mail</button>
             <a href="tela_inicial.html" class="btnEnviar" style="margin-top: 30px; display: inline-block; text-decoration: none;">Voltar à Tela Inicial</a>
         </div>
     </main>
 
+    
     <footer>
         <div class="footer">
             <div class="footer-logo">
@@ -34,25 +48,48 @@
                 <h2>Governo do Estado do Paraná</h2>
             </div>
             <div class="codigos">
-                <h3>Links úteis</h3>
-                <ul>
-                    <li><a href="#">Sobre</a></li>
-                    <li><a href="#">Política de Privacidade</a></li>
-                    <li><a href="#">Termos de Uso</a></li>
-                    <li><a href="#">Suporte</a></li>
-                </ul>
+             <h3>Links úteis</h3>
+            <ul>
+                <li><a href="#" data-tooltip="Nosso formulário de inscrição foi desenvolvido para oferecer praticidade, segurança e rapidez no processo de cadastro.">Sobre</a></li>
+                <li><a href="#" data-tooltip="Levamos sua privacidade a sério. Todos os dados informados neste formulário são utilizados apenas para fins de cadastro e comunicação relacionada ao serviço.">Política de Privacidade</a></li>
+                <li><a href="#" data-tooltip="Ao utilizar este formulário, você concorda em fornecer informações verdadeiras e atualizadas. O uso indevido dos dados poderá resultar no cancelamento do cadastro.">Termos de Uso</a></li>
+                <li><a href="#" data-tooltip="Em caso de dúvidas, dificuldades ou problemas, entre em contato pelo e-mail ao lado.">Suporte</a></li>
+            </ul>
             </div>
+
             <div class="contatos">
                 <h3>Contato</h3>
-                <p>Email: rafaelpilonetto59@gmail.com</p>
-                <p>Email: christianmartinkoski@gmail.com</p>
-                <p>Telefone: (46) 99989-0251</p>
-                <p>Telefone: (46) 99414-639</p>
+                <p>Email: governoparana@gmail.com</p>
+                <p>Telefone: (46)999890251 | (46)99414639</p>
             </div>
         </div>
         <div class="copyright">
             <p>© 2025 Governo do Estado do Paraná • Todos os direitos reservados</p>
         </div>
     </footer>
+    <script>
+  async function enviarEmail() {
+    try {
+      const resposta = await fetch("http://localhost:3000/enviar-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          para: "aluno@gmail.com", // email do aluno (dinâmico se precisar)
+          assunto: "Confirmação de Inscrição",
+          mensagem: "Sua inscrição foi recebida com sucesso!"
+        }),
+      });
+
+      const data = await resposta.json();
+      if (data.sucesso) {
+        alert("E-mail enviado com sucesso!");
+      } else {
+        alert("Falha ao enviar e-mail: " + data.msg);
+      }
+    } catch (err) {
+      alert("Erro na requisição: " + err.message);
+    }
+  }
+</script>
 </body>
 </html>

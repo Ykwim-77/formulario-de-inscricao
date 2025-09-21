@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Inscrição - Colégio Leonardo da Vinci</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #3a1c71;
+            --secondary-color: #5c2a9d;
+            --accent-color: #b6a2e3;
+            --light-bg: #f8f9fa;
+            --dark-text: #343a40;
+        }
+        
+        body {
+            background-color: var(--light-bg);
+            color: var(--dark-text);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding-bottom: 2rem;
+        }
+        
+        .header {
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1.5rem 0;
+            margin-bottom: 2rem;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .school-name {
+            font-weight: 700;
+            font-size: 1.8rem;
+            margin: 0;
+        }
+        
+        .school-info {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .form-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-title {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+        
+        .btn-secondary {
+            background-color: #6c757d;
+            border-color: #6c757d;
+        }
+        
+        .required-field::after {
+            content: " *";
+            color: red;
+        }
+        
+        .nav-tabs .nav-link.active {
+            color: var(--primary-color);
+            font-weight: bold;
+            border-bottom: 3px solid var(--primary-color);
+        }
+        
+        .nav-tabs .nav-link {
+            color: var(--dark-text);
+        }
+        
+        .table-scoring {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1.5rem;
+        }
+        
+        .table-scoring th, .table-scoring td {
+            border: 1px solid #dee2e6;
+            padding: 0.75rem;
+            vertical-align: top;
+        }
+        
+        .table-scoring th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+        }
+        
+        .scoring-section {
+            margin-bottom: 2rem;
+        }
+        
+        .scoring-option {
+            margin-bottom: 0.5rem;
+        }
+        
+        .document-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .document-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .document-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .document-list li::before {
+            content: "•";
+            color: var(--primary-color);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-right: 0.5em;
+        }
+        
+        footer {
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1.5rem 0;
+            margin-top: 2rem;
+            border-radius: 10px 10px 0 0;
+        }
+        
+        .alert-info {
+            background-color: #e9e1f9;
+            border-color: var(--accent-color);
+            color: var(--primary-color);
+        }
+        
+        @media print {
+            body {
+                padding: 0;
+                margin: 0;
+            }
+            
+            .no-print {
+                display: none !important;
+            }
+            
+            .form-container {
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h1 class="school-name">COLÉGIO ESTADUAL LEONARDO DA VINCI</h1>
+                    <p class="school-info">Ensino Fundamental, Médio, Normal e Profissional</p>
+                    <p class="school-info">Av. Salgado Filho, 175 - Centro Sul - Fone (46) 3536-2334</p>
+                    <p class="school-info">E-mail: dvzieonardodavinci@seed.pr.gov.br - CEP 85.660-000 - DOIS VIZINHOS - PARANÁ</p>
+                </div>
+                <div class="col-md-4 text-end">
+                    <img src="https://via.placeholder.com/100x100?text=Logo" alt="Logo" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Navigation Tabs -->
+        <ul class="nav nav-tabs no-print" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab">Inscrição</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="scoring-tab" data-bs-toggle="tab" data-bs-target="#scoring" type="button" role="tab">Pontuação</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="docs-tab" data-bs-toggle="tab" data-bs-target="#docs" type="button" role="tab">Documentos</button>
+            </li>
+        </ul>
+        
+        <div class="tab-content" id="myTabContent">
+            <!-- Inscrição Tab -->
+            <div class="tab-pane fade show active" id="home" role="tabpanel">
+                <div class="form-container mt-4">
+                    <h3 class="form-title">I - FICHA DE INSCRIÇÃO</h3>
+                    
+                    <form id="registrationForm">
+                        <div class="row mb-3">
+                            <div class="col-md-8">
+                                <label for="nome" class="form-label required-field">Nome Completo</label>
+                                <input type="text" class="form-control" id="nome" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="nascimento" class="form-label required-field">Data de Nascimento</label>
+                                <input type="date" class="form-control" id="nascimento" required>
+                            </div>
+                        </div>
+                        
+                        <div class="row mb-3">
+                            <div class="col-md-4">
+                                <label for="rg" class="form-label required-field">RG</label>
+                                <input type="text" class="form-control" id="rg" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="rg_emissor" class="form-label">Órgão Emissor</label>
+                                <input type="text" class="form-control" id="rg_emissor">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="cpf" class="form-label required-field">CPF</label>
+                                <input type="text" class="form-control" id="cpf" required>
+                            </div>
+                        </div>
+                        
+                        <div class="row mb-3">
+                            <div class="col-md-8">
+                                <label for="endereco" class="form-label required-field">Endereço</label>
+                                <input type="text" class="form-control" id="endereco" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="numero" class="form-label required-field">Número</label>
+                                <input type="text" class="form-control" id="numero" required>
+                            </div>
+                        </div>
+                        
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="bairro" class="form-label required-field">Bairro</label>
+                                <input type="text" class="form-control" id="bairro" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="cidade" class="form-label required-field">Município</label>
+                                <input type="text" class="form-control" id="cidade" value="Dois Vizinhos" required>
+                            </div>
+                            <div class="col-md-2">
+                                <label for="uf" class="form-label required-field">UF</label>
+                                <select class="form-select" id="uf" required>
+                                    <option value="PR" selected>PR</option>
+                                    <option value="AC">AC</option>
+                                    <option value="AL">AL</option>
+                                    <option value="AP">AP</option>
+                                    <option value="AM">AM</option>
+                                    <option value="BA">BA</option>
+                                    <option value="CE">CE</option>
+                                    <option value="DF">DF</option>
+                                    <option value="ES">ES</option>
+                                    <option value="GO">GO</option>
+                                    <option value="MA">MA</option>
+                                    <option value="MT">MT</option>
+                                    <option value="MS">MS</option>
+                                    <option value="MG">MG</option>
+                                    <option value="PA">PA</option>
+                                    <option value="PB">PB</option>
+                                    <option value="PR">PR</option>
+                                    <option value="PE">PE</option>
+                                    <option value="PI">PI</option>
+                                    <option value="RJ">RJ</option>
+                                    <option value="RN">RN</option>
+                                    <option value="RS">RS</option>
+                                    <option value="RO">RO</option>
+                                    <option value="RR">RR</option>
+                                    <option value="SC">SC</option>
+                                    <option value="SP">SP</option>
+                                    <option value="SE">SE</option>
+                                    <option value="TO">TO</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="row mb-3">
+                            <div class="col-md-4">
+                                <label for="telefone" class="form-label">Telefone Fixo</label>
+                                <input type="tel" class="form-control" id="telefone">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="celular1" class="form-label required-field">Celular A</label>
+                                <input type="tel" class="form-control" id="celular1" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="celular2" class="form-label">Celular B</label>
+                                <input type="tel" class="form-control" id="celular2">
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="email" class="form-label required-field">E-mail</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="form-label required-field">Curso Pretendido</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="curso" id="curso_desenvolvimento" value="desenvolvimento" required>
+                                <label class="form-check-label" for="curso_desenvolvimento">
+                                    Técnico em Desenvolvimento de Sistemas (Integrado ao Ensino Médio) – Turno da Manhã
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="curso" id="curso_docentes" value="docentes" required>
+                                <label class="form-check-label" for="curso_docentes">
+                                    Formação de Docentes (Integrado ao Ensino Médio) – Turno da Manhã
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="declaracao" required>
+                            <label class="form-check-label" for="declaracao">
+                                Declaro verdadeiras as informações acima e estar ciente que, em caso de classificação para o curso e efetivação de matrícula, o não comparecimento nas aulas nos primeiros (05) cinco dias úteis do início do curso implicará na exclusão automática da matrícula sendo necessário participar de novo processo seletivo para ingresso no curso pretendido.
+                            </label>
+                        </div>
+                        
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="responsavel" class="form-label">Nome do(a) Responsável</label>
+                                <input type="text" class="form-control" id="responsavel">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="assinatura" class="form-label">Assinatura</label>
+                                <input type="text" class="form-control" id="assinatura">
+                            </div>
+                        </div>
+                        
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end no-print">
+                            <button type="button" class="btn btn-secondary me-md-2" onclick="resetForm()">Limpar</button>
+                            <button type="button" class="btn btn-primary" onclick="validateForm()">Salvar e Avançar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Pontuação Tab -->
+            <div class="tab-pane fade" id="scoring" role="tabpanel">
+                <div class="form-container mt-4">
+                    <h3 class="form-title">II – FICHA DE PONTUAÇÃO PARA CURSOS INTEGRADOS AO ENSINO MÉDIO E FORMAÇÃO DE DOCENTES</h3>
+                    
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <label for="inscricao" class="form-label">NÚMERO DA INSCRIÇÃO:</label>
+                            <input type="text" class="form-control" id="inscricao">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="cgm" class="form-label">CGM:</label>
+                            <input type="text" class="form-control" id="cgm">
+                        </div>
+                    </div>
+                    
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <label for="curso_pontuacao" class="form-label">CURSO:</label>
+                            <input type="text" class="form-control" id="curso_pontuacao" readonly>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="turno_pontuacao" class="form-label">TURNO:</label>
+                            <input type="text" class="form-control" id="turno_pontuacao" value="Manhã" readonly>
+                        </div>
+                    </div>
+                    
+                    <div class="scoring-section">
+                        <h5 class="section-title">Beneficiário</h5>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <p>Beneficiário de programas federais de transferência de renda</p>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="scoring-option">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="beneficiario" id="beneficiario_nao" value="0">
+                                        <label class="form-check-label" for="beneficiario_nao">
+                                            ( ) não - 00 pontos
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="scoring-option">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="beneficiario" id="beneficiario_sim" value="10">
+                                        <label class="form-check-label" for="beneficiario_sim">
+                                            ( ) sim - Informar o Número NIS - 10 pontos
+                                        </label>
+                                    </div>
+                                    <input type="text" class="form-control mt-2" id="nis" placeholder="Número NIS" disabled>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="scoring-section">
+                        <h5 class="section-title">Origem Escolar</h5>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <p>Selecione a opção que descreve sua trajetória escolar</p>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="scoring-option">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="origem_escolar" id="origem_integral_publica" value="85">
+                                        <label class="form-check-label" for="origem_integral_publica">
+                                            Ensino Fundamental cursado integralmente em Instituição da Rede Pública ou bolsista integral da Rede Particular. - 85 pontos
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="scoring-option">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="origem_escolar" id="origem_parcial_1" value="80">
+                                        <label class="form-check-label" for="origem_parcial_1">
+                                            Ensino Fundamental cursado parcialmente na Rede Pública, com no máximo de 01 (um) ano na Rede Particular ou bolsista parcial da Rede Particular. - 80 pontos
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="scoring-option">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="origem_escolar" id="origem_parcial_2_3" value="75">
+                                        <label class="form-check-label" for="origem_parcial_2_3">
+                                            Ensino Fundamental cursado parcialmente na Rede Pública, com no mínimo 02 (dois) anos e máximo de 03 (três) anos na Rede Particular. - 75 pontos
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="scoring-option">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="origem_escolar" id="origem_integral_particular" value="70">
+                                        <label class="form-check-label" for="origem_integral_particular">
+                                            Ensino Fundamental cursado integralmente em Rede Particular. - 70 pontos
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="scoring-section">
+                        <h5 class="section-title">Médias 9º ano</h5>
+                        <table class="table-scoring">
+                            <thead>
+                                <tr>
+                                    <th>DISCIPLINAS</th>
+                                    <th>6º ANO</th>
+                                    <th>7º ANO</th>
+                                    <th>8º ANO</th>
+                                    <th>9º ANO</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Língua Portuguesa</td>
+                                    <td><input type="number" class="form-control" min="0" max="10" step="0.1"></td>
+                                    <td><input type="number" class="form-control" min="0" max="10" step="0.1"></td>
+                                    <td><input type="number" class="form-control" min="0" max="10" step="0.1"></td>
+                                    <td><input type="number" class="form-control" min="0" max="10" step="0.1"></td>
+                                </tr>
+                                <tr>
+                                    <td>Matemática</td>
+                                    <td><input type="number" class="form-control" min="0" max="10" step="0.1"></td>
+                                    <td><input type="number" class="form-control" min="0" max="10" step="0.1"></td>
+                                    <td><input type="number" class="form-control" min="0" max="10" step="0.1"></td>
+                                    <td><input type="number" class="form-control" min="0" max="10" step="0.1"></td>
+                                </tr>
+                                <tr>
+                                    <td>Média Aritmética das disciplinas – Final – 0-100</td>
+                                    <td colspan="4"><input type="number" class="form-control" id="media_aritmetica" readonly></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="scoring-section">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <p>Pontuação de Beneficiário + Origem Escolar</p>
+                            </div>
+                            <div class="col-md-4">
+                                <input type="number" class="form-control" id="pontuacao_beneficiario_origem" readonly>
+                            </div>
+                        </div>
+                        
+                        <div class="row mt-3">
+                            <div class="col-md-8">
+                                <p>Entrevista (quando aplicada) – Valor de 0 a 100</p>
+                            </div>
+                            <div class="col-md-4">
+                                <input type="number" class="form-control" id="entrevista" min="0" max="100">
+                            </div>
+                        </div>
+                        
+                        <div class="row mt-3">
+                            <div class="col-md-8">
+                                <p><strong>TOTAL GERAL DA PONTUAÇÃO</strong></p>
+                            </div>
+                            <div class="col-md-4">
+                                <input type="number" class="form-control" id="total_pontuacao" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3 form-check mt-4">
+                        <input type="checkbox" class="form-check-input" id="concordancia_pontuacao" required>
+                        <label class="form-check-label" for="concordancia_pontuacao">
+                            Estou de acordo com a pontuação que obtive acima.
+                        </label>
+                    </div>
+                    
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <label for="assinatura_candidato" class="form-label">Assinatura do candidato:</label>
+                            <input type="text" class="form-control" id="assinatura_candidato">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="funcionario" class="form-label">Nome do funcionário:</label>
+                            <input type="text" class="form-control" id="funcionario">
+                        </div>
+                    </div>
+                    
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end no-print mt-4">
+                        <button type="button" class="btn btn-secondary me-md-2" onclick="resetScoringForm()">Limpar</button>
+                        <button type="button" class="btn btn-primary" onclick="calculateScore()">Calcular Pontuação</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Documentos Tab -->
+            <div class="tab-pane fade" id="docs" role="tabpanel">
+                <div class="form-container mt-4">
+                    <h3 class="form-title">Documentos Necessários para Inscrição</h3>
+                    
+                    <div class="alert alert-info">
+                        <i class="fas fa-info-circle me-2"></i> 
+                        Após preencher o formulário de inscrição, dirija-se à secretaria do colégio com os documentos listados abaixo para finalizar sua inscrição.
+                    </div>
+                    
+                    <h5 class="section-title mt-4">Lista de Documentos</h5>
+                    <ul class="document-list">
+                        <li>Histórico escolar até o 8º ano e boletim do 9º ano</li>
+                        <li>Original e Fotocópia da Certidão de Nascimento</li>
+                        <li>RG e CPF</li>
+                        <li>Conta de luz de outubro ou novembro (COPEL) ou água (SANEPAR)</li>
+                        <li>Declaração de Vacinação (emitida pelo Posto de Saúde)</li>
+                        <li>Número do Cartão NIS (se tiver Auxílio Brasil)</li>
+                        <li>RG e CPF do(a) responsável</li>
+                    </ul>
+                    
+                    <h5 class="section-title mt-4">Comprovante de Inscrição</h5>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="comprovante_inscricao" class="form-label">Número da inscrição:</label>
+                            <input type="text" class="form-control" id="comprovante_inscricao">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="comprovante_nome" class="form-label">Nome:</label>
+                            <input type="text" class="form-control" id="comprovante_nome" readonly>
+                        </div>
+                    </div>
+                    
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="comprovante_pontos" class="form-label">Total de pontos obtidos:</label>
+                            <input type="text" class="form-control" id="comprovante_pontos" readonly>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="comprovante_curso" class="form-label">Curso:</label>
+                            <input type="text" class="form-control" id="comprovante_curso" readonly>
+                        </div>
+                    </div>
+                    
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="comprovante_data" class="form-label">Data:</label>
+                            <input type="text" class="form-control" id="comprovante_data">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="comprovante_assinatura" class="form-label">Nome e Assinatura do funcionário/Carinho da Escola</label>
+                            <input type="text" class="form-control" id="comprovante_assinatura">
+                        </div>
+                    </div>
+                    
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end no-print">
+                        <button type="button" class="btn btn-secondary me-md-2" onclick="window.print()">Imprimir Comprovante</button>
+                        <button type="button" class="btn btn-primary" onclick="submitApplication()">Finalizar Inscrição</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container text-center">
+            <p>Colégio Estadual Leonardo da Vinci - Ensino Fundamental, Médio, Normal e Profissional</p>
+            <p>Av. Salgado Filho, 175 - Centro Sul - CEP 85.660-000 - Dois Vizinhos - Paraná</p>
+            <p>Fone: (46) 3536-2334 - E-mail: dvzieonardodavinci@seed.pr.gov.br</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Script para validação e funcionalidades do formulário
+        document.addEventListener('DOMContentLoaded', function() {
+            // Ativar o campo NIS quando selecionado "sim" para beneficiário
+            document.getElementById('beneficiario_sim').addEventListener('change', function() {
+                document.getElementById('nis').disabled = !this.checked;
+            });
+            
+            // Preencher automaticamente a data atual no comprovante
+            const today = new Date();
+            const formattedDate = today.toLocaleDateString('pt-BR');
+            document.getElementById('comprovante_data').value = formattedDate;
+            
+            // Preencher automaticamente o número de inscrição
+            const randomInscricao = Math.floor(1000 + Math.random() * 9000);
+            document.getElementById('inscricao').value = 'INSC-' + randomInscricao;
+            document.getElementById('comprovante_inscricao').value = 'INSC-' + randomInscricao;
+        });
+        
+        function validateForm() {
+            const requiredFields = document.querySelectorAll('#registrationForm [required]');
+            let isValid = true;
+            
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    isValid = false;
+                    field.classList.add('is-invalid');
+                } else {
+                    field.classList.remove('is-invalid');
+                }
+            });
+            
+            if (isValid) {
+                // Preencher automaticamente as informações na aba de pontuação
+                const nome = document.getElementById('nome').value;
+                const cursoSelecionado = document.querySelector('input[name="curso"]:checked');
+                
+                if (cursoSelecionado) {
+                    const cursoTexto = cursoSelecionado.id === 'curso_desenvolvimento' ? 
+                        'Técnico em Desenvolvimento de Sistemas' : 'Formação de Docentes';
+                    
+                    document.getElementById('curso_pontuacao').value = cursoTexto;
+                    document.getElementById('comprovante_curso').value = cursoTexto;
+                }
+                
+                document.getElementById('comprovante_nome').value = nome;
+                
+                // Ir para a aba de pontuação
+                const scoringTab = new bootstrap.Tab(document.getElementById('scoring-tab'));
+                scoringTab.show();
+                
+                alert('Informações salvas com sucesso! Preencha agora a ficha de pontuação.');
+            } else {
+                alert('Por favor, preencha todos os campos obrigatórios.');
+            }
+        }
+        
+        function resetForm() {
+            if (confirm('Tem certeza que deseja limpar todos os campos do formulário?')) {
+                document.getElementById('registrationForm').reset();
+            }
+        }
+        
+        function resetScoringForm() {
+            if (confirm('Tem certeza que deseja limpar todos os campos de pontuação?')) {
+                document.querySelectorAll('#scoring input:not([readonly])').forEach(input => {
+                    input.value = '';
+                    if (input.type === 'radio' || input.type === 'checkbox') {
+                        input.checked = false;
+                    }
+                });
+                document.getElementById('nis').disabled = true;
+            }
+        }
+        
+        function calculateScore() {
+            // Calcular pontuação do beneficiário
+            let pontuacaoBeneficiario = 0;
+            const beneficiarioSelecionado = document.querySelector('input[name="beneficiario"]:checked');
+            if (beneficiarioSelecionado) {
+                pontuacaoBeneficiario = parseInt(beneficiarioSelecionado.value);
+            }
+            
+            // Calcular pontuação de origem escolar
+            let pontuacaoOrigem = 0;
+            const origemSelecionada = document.querySelector('input[name="origem_escolar"]:checked');
+            if (origemSelecionada) {
+                pontuacaoOrigem = parseInt(origemSelecionada.value);
+            }
+            
+            // Calcular média aritmética (simulação)
+            const mediaAritmetica = Math.floor(Math.random() * 41) + 60; // Valor entre 60 e 100
+            document.getElementById('media_aritmetica').value = mediaAritmetica;
+            
+            // Obter pontuação da entrevista
+            const entrevista = parseInt(document.getElementById('entrevista').value) || 0;
+            
+            // Calcular total
+            const totalPontuacao = pontuacaoBeneficiario + pontuacaoOrigem + entrevista;
+            
+            // Preencher os campos
+            document.getElementById('pontuacao_beneficiario_origem').value = pontuacaoBeneficiario + pontuacaoOrigem;
+            document.getElementById('total_pontuacao').value = totalPontuacao;
+            document.getElementById('comprovante_pontos').value = totalPontuacao;
+            
+            alert('Pontuação calculada com sucesso! Total: ' + totalPontuacao + ' pontos.');
+        }
+        
+        function submitApplication() {
+            alert('Inscrição finalizada com sucesso! Em um sistema real, os dados seriam enviados para o servidor.');
+        }
+    </script>
+</body>
+</html>
