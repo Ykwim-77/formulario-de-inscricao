@@ -4,68 +4,152 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Confirmação de Inscrição</title>
-    <link rel="stylesheet" href="formAluno.css">
+    <link rel="stylesheet" href="relatorios.css">
 </head>
 <body>
-    <header>
-            <div class="bannerTopo">
-                
-                <!-- Esquerda -->
-                <div class="lado-esquerdo">
-                <img src="imagens/logoGoverno.png" alt="Logo do Governo" class="logoTopo">
-                <div class="textosTopo">
-                    <h1>Governo do Estado do Paraná</h1>
-                    <p class="subtitulo">Portal Educacional</p>
-                </div>
-                </div>
-                <!-- Direita -->
-                <nav class="main-nav">
-                <ul>
-                    <li><a href="home.html"><i class="fas fa-book"></i> Cursos</a></li>
-                    <li><a href="https://g1.globo.com/saude/noticia/2025/04/14/por-que-bolsonaro-fez-varias-cirurgias-apos-facada-quanto-mais-mexe-maior-o-risco.ghtml"><i class="fas fa-newspaper"></i> Notícias</a></li>
-                    <li><a href="#"><i class="fas fa-graduation-cap"></i>Estatisticas</a></li>
-                </ul>
-                </nav>
-
+<header>
+    <div class="bannerTopo">
+        <!-- Esquerda -->
+        <div class="lado-esquerdo">
+            <img src="imagens/logoGoverno.png" alt="Logo do Governo" class="logoTopo">
+            <div class="textosTopo">
+                <h1>Governo do Estado do Paraná</h1>
+                <p class="subtitulo">Portal Educacional</p>
             </div>
-        </header>
-
-    <main>
-        <div class="form-card" style="text-align: center; padding: 50px;">
-            <h2>Inscrição Enviada com Sucesso!</h2>
-            <p>Os dados do aluno foram recebidos e registrados com sucesso.</p>
-            <p>Em breve você receberá informações adicionais por e-mail.</p>
-            
-            <a href="tela_inicial.html" class="btnEnviar" style="margin-top: 30px; display: inline-block; text-decoration: none;">Voltar à Tela Inicial</a>
         </div>
-    </main>
+        <!-- Direita -->
+        <nav class="main-nav">
+            <ul>
+                <li><a href="home.html"><i class="fas fa-book"></i> Cursos</a></li>
+                <li><a href="https://g1.globo.com/saude/noticia/2025/04/14/por-que-bolsonaro-fez-varias-cirurgias-apos-facada-quanto-mais-mexe-maior-o-risco.ghtml"><i class="fas fa-newspaper"></i> Notícias</a></li>
+                <li><a href="#"><i class="fas fa-graduation-cap"></i> Estatísticas</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
 
+
+  <h2>Relatório de Cursos Disponíveis</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Curso</th>
+        <th>Total de Candidatos</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Técnico de Desenvolvimento de Sistemas</td>
+        <td><input type="number" id="dev_sistemas" value="" readonly></td>
+      </tr>
+      <tr>
+        <td>Formação de Docentes</td>
+        <td><input type="number" id="form_docentes" value="" readonly></td>
+      </tr>
+      <tr>
+        <td>Técnico em Administração</td>
+        <td><input type="number" id="adm" value="" readonly></td>
+      </tr>
+      <tr>
+        <td>Técnico em Enfermagem</td>
+        <td><input type="number" id="enfermagem" value="" readonly></td>
+      </tr>
+      <tr>
+        <td>Técnico em Agronegócio</td>
+        <td><input type="number" id="agronegocio" value="" readonly></td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td>Total Geral</td>
+        <td><input type="number" id="total" readonly></td>
+      </tr>
+    </tfoot>
+  </table>
     
     <footer>
-        <div class="footer">
-            <div class="footer-logo">
-                <img src="imagens/logoGoverno.png" alt="Logo do Governo">
-                <h2>Governo do Estado do Paraná</h2>
-            </div>
-            <div class="codigos">
-             <h3>Links úteis</h3>
+    <div class="footer">
+        <div class="footer-logo">
+            <img src="imagens/logoGoverno.png" alt="Logo do Governo">
+            <h2>Governo do Estado do Paraná</h2>
+        </div>
+        <div class="codigos">
+            <h3>Links úteis</h3>
             <ul>
                 <li><a href="#" data-tooltip="Nosso formulário de inscrição foi desenvolvido para oferecer praticidade, segurança e rapidez no processo de cadastro.">Sobre</a></li>
                 <li><a href="#" data-tooltip="Levamos sua privacidade a sério. Todos os dados informados neste formulário são utilizados apenas para fins de cadastro e comunicação relacionada ao serviço.">Política de Privacidade</a></li>
                 <li><a href="#" data-tooltip="Ao utilizar este formulário, você concorda em fornecer informações verdadeiras e atualizadas. O uso indevido dos dados poderá resultar no cancelamento do cadastro.">Termos de Uso</a></li>
                 <li><a href="#" data-tooltip="Em caso de dúvidas, dificuldades ou problemas, entre em contato pelo e-mail ao lado.">Suporte</a></li>
             </ul>
-            </div>
+        </div>
+        <div class="contatos">
+            <h3>Contato</h3>
+            <p>Email: governoparana@gmail.com</p>
+            <p>Telefone: (46) 99989-0251 | (46) 99414-639</p>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>© 2025 Governo do Estado do Paraná • Todos os direitos reservados</p>
+    </div>
+</footer>
+<script>
+document.addEventListener('DOMContentLoaded', carregarTotais);
 
-            <div class="contatos">
-                <h3>Contato</h3>
-                <p>Email: governoparana@gmail.com</p>
-                <p>Telefone: (46)999890251 | (46)99414639</p>
-            </div>
-        </div>
-        <div class="copyright">
-            <p>© 2025 Governo do Estado do Paraná • Todos os direitos reservados</p>
-        </div>
-    </footer>
+async function carregarTotais() {
+  try {
+    const response = await fetch("http://127.0.0.1:3000/candidatos"); // sua rota GET
+    if (!response.ok) throw new Error(`Erro na requisição: ${response.status} ${response.statusText}`);
+
+    const candidatos = await response.json();
+    console.log('Candidatos recebidos:', candidatos);
+
+
+    const totais = {
+      dev_sistemas: 0,
+      form_docentes: 0,
+      adm: 0,
+      enfermagem: 0,
+      agronegocio: 0
+    };
+
+    candidatos.forEach(c => {
+
+      const curso = String(c.curso || '').toLowerCase();
+
+
+      if (curso.includes("tds") || curso.includes("desenvolvimento")) {
+        totais.dev_sistemas++;              // <-- CORREÇÃO: incrementa o contador certo
+      } else if (curso.includes("fda") || curso.includes("formação")) {
+        totais.form_docentes++;
+      } else if (curso.includes("tad")) {
+        totais.adm++;
+      } else if (curso.includes("ted")) {
+        totais.enfermagem++;
+      } else if (curso.includes("tan")) {
+        totais.agronegocio++;
+      } else {
+;
+      }
+    });
+
+
+    document.getElementById("dev_sistemas").value = totais.dev_sistemas;
+    document.getElementById("form_docentes").value = totais.form_docentes;
+    document.getElementById("adm").value = totais.adm;
+    document.getElementById("enfermagem").value = totais.enfermagem;
+    document.getElementById("agronegocio").value = totais.agronegocio;
+
+    document.getElementById("total").value =
+      Object.values(totais).reduce((a, b) => a + b, 0);
+
+    console.log('Totais calculados:', totais);
+
+  } catch (erro) {
+    console.error("Erro ao carregar dados:", erro);
+  }
+}
+</script>
+
 </body>
 </html>

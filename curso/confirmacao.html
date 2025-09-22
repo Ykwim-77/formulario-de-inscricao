@@ -68,28 +68,22 @@
         </div>
     </footer>
     <script>
-  async function enviarEmail() {
-    try {
-      const resposta = await fetch("http://localhost:3000/enviar-email", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          para: "aluno@gmail.com", // email do aluno (dinâmico se precisar)
-          assunto: "Confirmação de Inscrição",
-          mensagem: "Sua inscrição foi recebida com sucesso!"
-        }),
-      });
+async function enviarEmail() {
+  const resposta = await fetch("http://localhost:3000/candidatos/email", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      para: "enviar.email.escola@gmail.com",
+      assunto: "Confirmação de Inscrição",
+      mensagem: "Sua inscrição foi recebida com sucesso!",
+    }),
+  });
 
-      const data = await resposta.json();
-      if (data.sucesso) {
-        alert("E-mail enviado com sucesso!");
-      } else {
-        alert("Falha ao enviar e-mail: " + data.msg);
-      }
-    } catch (err) {
-      alert("Erro na requisição: " + err.message);
-    }
-  }
+  // 🚨 Só tenta fazer .json() se o servidor respondeu com JSON
+  const dados = await resposta.json();
+  console.log(dados);
+}
+
 </script>
 </body>
 </html>
